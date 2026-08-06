@@ -1,7 +1,11 @@
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
+import os
 
-embedding_model = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+embedding_model = GoogleGenerativeAIEmbeddings(
+    model="models/text-embedding-004",
+    google_api_key=os.getenv("GOOGLE_API_KEY")
+)
 
-def generate_embeddings(chunks: list[str]) -> list[list[float]]:
-    embeddings = embedding_model.embed_documents(chunks) 
-    return embeddings
+
+def generate_embeddings(chunks):
+    return embedding_model.embed_documents(chunks)
