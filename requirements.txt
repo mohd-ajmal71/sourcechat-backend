@@ -11,6 +11,6 @@ langchain-google-genai==2.0.5
 
 google-generativeai==0.8.3
 
-faiss-cpu==1.9.0
+faiss-cpu==1.15.0
 
 python-dotenv==1.0.1
