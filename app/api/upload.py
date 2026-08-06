@@ -35,6 +35,7 @@ async def upload_file(files: Annotated[list[UploadFile], File(...)]):
              )
    
         saved_file=f"uploads/{file.filename}"
+        os.makedirs("uploads", exist_ok=True)
         with open(saved_file,"wb") as buffer:
             shutil.copyfileobj(file.file,buffer)
             
