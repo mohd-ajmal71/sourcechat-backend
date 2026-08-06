@@ -1,12 +1,12 @@
-from google import genai
+import google.generativeai as genai
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
 
-api_key = os.getenv("GEMINI_API_KEY")
-client = genai.Client(api_key=api_key)
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
+model = genai.GenerativeModel("gemini-1.5-flash")
 
 def generate_answer(question: str, context: str):
     prompt = f"""
@@ -20,7 +20,6 @@ Output format:
 ## Additional Explanation (AI Knowledge)
 - Maximum 50 words.
 - At most 4 bullet points.
-- This section is based on your general knowledge, not the uploaded document.
 
 Context:
 {context}
@@ -29,9 +28,6 @@ Question:
 {question}
 """
 
-    response = client.models.generate_content(
-        model="models/gemini-3.1-flash-lite",
-        contents=prompt
-    )
+    response = model.generate_content(prompt)
 
     return response.text
