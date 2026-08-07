@@ -29,23 +29,78 @@ def create_faiss_index(embeddings: list):
     return index
 
 
-def save_faiss_index(index, file_path="faiss_index/index.faiss"):
-    os.makedirs("faiss_index", exist_ok=True)
+def save_faiss_index(index, session_id: str, document_id: str):
+    folder = os.path.join(
+        "faiss_index",
+        session_id,
+        document_id
+    )
+
+    os.makedirs(folder, exist_ok=True)
+
+    file_path = os.path.join(
+        folder,
+        "index.faiss"
+    )
+
     faiss.write_index(index, file_path)
 
 
-def load_faiss_index(path="faiss_index/index.faiss"):
-    idx = faiss.read_index(path)
-    return idx
+def load_faiss_index(session_id: str, document_id: str):
+    file_path = os.path.join(
+        "faiss_index",
+        session_id,
+        document_id,
+        "index.faiss"
+    )
+
+    if not os.path.exists(file_path):
+        raise FileNotFoundError(
+            "No FAISS index found for this document."
+        )
+
+    return faiss.read_index(file_path)
 
 
-def save_chunks(chunks, path="faiss_index/chunks.pkl"):
-    with open(path, "wb") as f:
+def save_chunks(
+    chunks,
+    session_id: str,
+    document_id: str
+):
+    folder = os.path.join(
+        "faiss_index",
+        session_id,
+        document_id
+    )
+
+    os.makedirs(folder, exist_ok=True)
+
+    file_path = os.path.join(
+        folder,
+        "chunks.pkl"
+    )
+
+    with open(file_path, "wb") as f:
         pickle.dump(chunks, f)
 
 
-def load_chunks(path="faiss_index/chunks.pkl"):
-    with open(path, "rb") as f:
+def load_chunks(
+    session_id: str,
+    document_id: str
+):
+    file_path = os.path.join(
+        "faiss_index",
+        session_id,
+        document_id,
+        "chunks.pkl"
+    )
+
+    if not os.path.exists(file_path):
+        raise FileNotFoundError(
+            "No chunks found for this document."
+        )
+
+    with open(file_path, "rb") as f:
         chunks = pickle.load(f)
 
     return chunks
