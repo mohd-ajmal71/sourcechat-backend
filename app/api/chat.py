@@ -11,7 +11,7 @@ router = APIRouter()
 class ChatRequest(BaseModel):
     question: str
     session_id: str
-    document_id: str
+    document_ids: list[str]
 
 
 @router.post("/chat")
@@ -20,7 +20,7 @@ async def chat(request: ChatRequest):
     chunks = retrieve_chunks(
         question=request.question,
         session_id=request.session_id,
-        document_id=request.document_id
+        document_ids=request.document_ids
     )
 
     context = "\n\n".join(
