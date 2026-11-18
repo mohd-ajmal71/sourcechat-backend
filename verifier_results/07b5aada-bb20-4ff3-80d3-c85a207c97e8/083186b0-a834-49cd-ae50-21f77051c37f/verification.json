@@ -1,0 +1,51 @@
+{
+    "metadata": {
+        "source": "uploads\\07b5aada-bb20-4ff3-80d3-c85a207c97e8\\083186b0-a834-49cd-ae50-21f77051c37f\\lab_manual_3rd.pdf",
+        "page": 0
+    },
+    "evidence": [],
+    "external_sources": [
+        {
+            "title": "Analyze the health and status of your virtual machine with Azure Monitor - Azure Monitor | Microsoft Learn",
+            "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-performance",
+            "content": "| Chart | Description |\n --- |\n| CPU Utilization % | Defaults show the average and top 95th percentile. |\n| Available Memory | Defaults show the average, top 5th, and 10th percentile. |\n| Logical Disk Space Used % | Defaults show the average and 95th percentile. |\n| Logical Disk IOPS | Defaults show the average and 95th percentile. |\n| Logical Disk MB/s | Defaults show the average and 95th percentile. |\n| Max Logical Disk Used % | Defaults show the average and 95th percentile. | [...] Screenshot that shows a VM insights Performance Aggregate view.\n\nThe following capacity utilization charts are provided:\n\n CPU Utilization %: Defaults show the average and top 95th percentile.\n Available Memory: Defaults show the average, top 5th, and 10th percentile.\n Logical Disk Space Used %: Defaults show the average and 95th percentile.\n Bytes Sent Rate: Defaults show the average bytes sent.\n Bytes Receive Rate: Defaults show the average bytes received. [...] CPU Utilization %: Shows the top five machines with the highest average processor utilization.\n Available Memory: Shows the top five machines with the lowest average amount of available memory.\n Logical Disk Space Used %: Shows the top five machines with the highest average disk space used percent across all disk volumes.\n Bytes Sent Rate: Shows the top five machines with the highest average of bytes sent.",
+            "score": 0.61687815,
+            "matched_query": "\"health check including checking CPU usage memory usage anddiskspace andgenerateareport\"",
+            "document_page": 46
+        },
+        {
+            "title": "SysGauge - System Monitor",
+            "url": "https://www.sysgauge.com",
+            "content": "| |  |  |  --- | | SysGauge is a system status and performance monitoring solution allowing one to monitor the CPU usage, system memory usage, disk performance, disk activity and disk space usage, network activity and performance, the operating system status and performance, the status and resource usage of running processes, the file system status, the Active Directory performance and health status, NAS server status, SQL Server status, IIS Server status, iSCSI performance and much more. | [...] and much more. | SysGauge System Monitor  Flexible • Customizable • Easy to Use  Product Features    SysGauge Overview  System Status Monitor  Remote Server Monitoring  CPU Usage Monitoring  Memory Usage Monitoring  Process Status Monitoring  Network Activity Monitoring  Active Directory Monitoring  Disk Activity Monitoring  NAS Server Monitoring  SQL Server Monitoring  IIS Server Monitoring  Monitoring Reports  Monitoring Actions |   |  |  |  |  ---  | 28-Oct-2026  SysGauge v13.6 adds the",
+            "score": 0.5939626,
+            "matched_query": "\"health check including checking CPU usage memory usage anddiskspace andgenerateareport\"",
+            "document_page": 46
+        },
+        {
+            "title": "CPU Memory Disk Performance Monitor — ManageEngine OpManager",
+            "url": "https://www.manageengine.com/network-monitoring/cpu-memory-disk.html",
+            "content": "Drill down the reports from the dial graphs to see the detailed performance statistics for the required time window.\n Watch the 95th percentile reading on the reports and adjust the thresholds based on trend.\n Quickly pull out the performance reports for last 30 days or last 7 days and assess the need for a resource upgrade or analyze the trend.\n Assess the health of CPU, memory, disk utilization, and Process Count at the device level using the 'At-a-glance' report. [...] Find CPU, Disk Space Monitor, and memory utilization monitors associated out-of-the-box for close to a dozen server types.\n Spot high resource utilization at a glance using the intuitive dials in snapshot page.\n Monitor multiple processors with detailed utilization reports for each CPU instance.\n Fine tune the monitoring configurations right from the snapshot page and narrow down a problem more quickly.\n\n Monitor CPU Memory Disk [...] Troubleshoot instantly using process diagnostics to check the process-wise resource utilization and terminate an offending process if required.\n Quickly assess the performance by looking at the real-time utilization reports and decide on the course of action.\n Take a quick look at the process monitors on a server to check the CPU and memory used up by a process at one go.",
+            "score": 0.5547117,
+            "matched_query": "\"health check including checking CPU usage memory usage anddiskspace andgenerateareport\"",
+            "document_page": 46
+        },
+        {
+            "title": "Appliance Health Monitoring for Memory, CPU and Disk performance",
+            "url": "https://developer.arubanetworks.com/edgeconnect/docs/appliance-health-monitoring-for-memory-cpu-and-tunnel",
+            "content": "Each of these numbers is in kilobytes. The main thing to look for is “free”. This number must be above 256,000 for EdgeConnect to be considered healthy. This number can go as low as 50,000, and EdgeConnect will still function normally, but as a best practice is to alarm at 256,000. For example, if you were monitoring memory usage, the best metric to use is “free,\" which is the available memory. If the memory goes below 50,000 KB, one needs to investigate the gateway and check for its health in [...] If either of these conditions is not met, It does not necessarily mean that the appliance is degraded or will misbehave, but rather, provides an indicator that someone should look at the system to further evaluate the health of the memory. The EdgeConnect software is designed to maintain relatively constant memory consumption – looking at memory trends on Orchestrator will help identify scenarios where memory consumption is increasing over time. If the swap space is impacting the performance of [...] The appliance supports a REST API to retrieve Disk usage statistics. This can be accessed through the appliance, using the following API:\n\nGET /diskUsage\n\n### Getting disk usage statistics\n\nGET /rest/json/diskUsage",
+            "score": 0.54722214,
+            "matched_query": "\"health check including checking CPU usage memory usage anddiskspace andgenerateareport\"",
+            "document_page": 46
+        },
+        {
+            "title": "Engine Health report",
+            "url": "https://help.blazemeter.com/docs/guide/performance-engine-health-report.html",
+            "content": "CPU   \n  Represents the Percentage usage of CPU in instance\n MemoryRepresents the Percentage usage of the Virtual Memory in instance\n Network I/O   \n  Represents the amount of data transferred in I/O operations (KB/s)\n Connections   \n  Represents the number of persistent connections established for each transaction throughout the test\n\n## View Engine Health report\n\nFollow these steps: [...] Based on the test configuration, BlazeMeter monitors resource utilization at regular intervals. If the KPIs for CPU or memory usage exceed the thresholds over the duration of the test run, a warning is triggered:\n\nThis notification indicates that you should reduce the number of virtual users per engine for future test runs.\n\n1. In the warning, click see recommendations.\n\n   The Usage Recommendations page displays:\n\n   High Usage Recommendations\n2. Choose one of the following options: [...] To view only engines that exceeded 80% CPU usage, click High CPU\n To view only engines that exceeded 85% memory usage, click High Memory\n\n## Troubleshooting high levels of CPU and memory\n\nEnsure the following for optimal performance:",
+            "score": 0.52883756,
+            "matched_query": "\"health check including checking CPU usage memory usage anddiskspace andgenerateareport\"",
+            "document_page": 46
+        }
+    ],
+    "total_pages": 47,
+    "total_evidence": 0
+}

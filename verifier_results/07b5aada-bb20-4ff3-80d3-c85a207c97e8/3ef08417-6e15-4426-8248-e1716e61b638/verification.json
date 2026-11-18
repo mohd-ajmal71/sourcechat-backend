@@ -1,0 +1,111 @@
+{
+    "metadata": {
+        "source": "uploads\\07b5aada-bb20-4ff3-80d3-c85a207c97e8\\3ef08417-6e15-4426-8248-e1716e61b638\\lab_manual_3rd.pdf",
+        "page": 0
+    },
+    "evidence": [],
+    "search_queries": [
+        {
+            "sentence": "Write a Python program to merge the content of both the file in following format.: Emp_Dep (Ename, Eid, Esalary, EDID, DName,Dlocation) (Note: Merging should follow the condition-DID of Employee file should beequaltoDepartmentIDofdepartmentfile).",
+            "page": 41,
+            "score": 67.72
+        },
+        {
+            "sentence": "( Refer:FormatforProjectReport.pdf) Final Evaluation Demonstrate the working of system to the audience (teacher, Mentor students, clients), specifying the designand main featuresof the developed system.",
+            "page": 24,
+            "score": 61.78
+        },
+        {
+            "sentence": "CONTENT This course consists of the development of a realistic application, representative of a typical real-life software system, under semi-professional working conditions.",
+            "page": 4,
+            "score": 57.85
+        }
+    ],
+    "external_sources": [
+        {
+            "title": "United States Postal Service",
+            "url": "https://wp1-ext.usps.gov/sap/bc/bsp/sap/hrrcf_wd_dovru/application.do?PARAM=cmNmdHlwZT1waW5zdCZwaW5zdD0wMDUwNTZBRTVBM0IxRkUxOENFOTlGNDVBRkFCNkUwOA%3D%3D&sap-client=010&sap-language=EN",
+            "content": "1. Knowledge of application development, such as WEB, batch, and object-oriented.\n2. Knowledge of industry-standard software development life cycle processes.\n3. Ability to use relational database technology.\n4. Experience defining requirements and design specifications, creating conceptual, logical and physical design using case models, component models, and physical models. [...] 5. Experience writing, editing and updating programs in support of software applications, using one or more programming languages such as JAVA, SQL, COBOL and/or Visual Basic.\n6. Experience testing, debugging and repairing programs sufficient to meet software specifications.\n7. Experience conducting systems tests and establishing test plans.\n8. Ability to solve problems using analytical skills.\n9. Ability to work without immediate supervision. [...] 2. Professional experience performing as a developer on a large, complex computer programming or system development project, leading the analysis, design, development, integration, implementation, maintenance, and support functions, and utilizing Agile best practices.\n3. Experience designing, building and deploying Artificial Intelligence Models, Machine Learning Models, or Low Code/No Code Solutions.",
+            "score": 0.12984344,
+            "matched_query": "\"CONTENT This course consists of the development of a realistic application, representative of a typical real-life software system, under semi-professional working conditions.\"",
+            "document_page": 4,
+            "text_overlap": 35.29,
+            "matched_terms": [
+                "application",
+                "development",
+                "life",
+                "professional",
+                "software",
+                "system"
+            ]
+        },
+        {
+            "title": "Ohio Teacher Evaluation System 2.0 Model",
+            "url": "https://dam.assets.ohio.gov/image/upload/sboe.ohio.gov/Educator-Evaluations/TeacherEvaluations/Model-OTES-2-0-Final-03-27-20.pdf",
+            "content": "to Inform Final Holistic Rating The following is suggested step-by-step guidance to support evaluators in gathering, reviewing and analyzing multiple data points that inform a teacher’s Final Holistic Rating. STEP 1: GATHER EVIDENCE ON TEACHER PERFORMANCE TO BEGIN THE FINAL HOLISTIC RATING PROCESS Evidence of performance comes in many forms. Formal observations and walkthroughs, scheduled conferences, informal interactions, lesson plans, student work, correspondence with families and feedback [...] students, parents, other teachers, administrators and the community to support student learning; and • Assume responsibility for professional growth and performance as an individual and as a member of a learning community. These characteristics are demonstrated in the Teacher Performance Evaluation Rubric. FINAL December 2025 10 Ohio Teacher Evaluation System 2.0 Model: Organization The Ohio Teacher Evaluation System 2.0 Model is designed to support implementation of the State Board of [...] as necessary, based on collaborative conversations between the evaluator and teacher. FINAL December 2025 12 Figure 1—Selecting an Appropriate Plan Accomplished Skilled Developing Ineffective No Professional Growth or Final Holistic Final Final Final Previous Improvement Plan Guidance Rating Holistic Rating Holistic Rating Holistic Rating Rating • • • • Growth Plan • Improvement Plan • Self-directed by Teacher • • Jointly Developed by Teacher and Evaluator • Guided by Evaluator • Developed by",
+            "score": 0.22388572,
+            "matched_query": "\"( Refer:FormatforProjectReport.pdf) Final Evaluation Demonstrate the working of system to the audience (teacher, Mentor students, clients), specifying the designand main featuresof the developed system.\"",
+            "document_page": 24,
+            "text_overlap": 33.33,
+            "matched_terms": [
+                "developed",
+                "evaluation",
+                "final",
+                "students",
+                "system",
+                "teacher"
+            ]
+        },
+        {
+            "title": "A simple script to merge multiple python files into each other  · GitHub",
+            "url": "https://gist.github.com/SpotlightForBugs/76a115003e000d5b17bd21d129094fca",
+            "content": "|  | # Handle different types of import statements in each file |\n|  | content = handle\\_imports(filename) |\n|  | # Write a comment to indicate which file is being merged |\n|  | outfile.write(f\"# Merging {filename}\\n\") |\n|  | # Write the content of each file to the output file |\n|  | outfile.write(content) |\n|  | # Write a newline character to separate the files |\n|  | outfile.write(\"\\n\") |\n|  |  |\n|  | # Call the merge function with the given files and output | [...] |  |  |\n|  | # A function to merge two or more files into one |\n|  | def merge\\_files(files, output): |\n|  | # Open the output file in write mode |\n|  | with open(output, \"w\",encoding=\"utf-8\") as outfile: |\n|  | # For each file in the list of files to be merged |\n|  | for filename in files: |\n|  | # Get the prefix for each file |\n|  | prefix = get\\_prefix(filename) |\n|  | # Rename the functions in each file with the prefixes |\n|  | content = rename\\_functions(filename, prefix) | [...] |  | merge\\_files(files, output) |\n|  |  |\n|  | # Check if the merged file is runnable and report any errors or warnings |\n|  |  |\n|  | try: |\n|  | # Execute the merged file as a script using execfile (Python 2) or exec (Python 3) |\n|  | if sys.version\\_info == 2: |\n|  | execfile(output) |\n|  | else: |\n|  | exec(open(output,encoding=\"utf-8\").read()) |\n|  | # Print a success message if no exceptions are raised |\n|  | print(f\"The merged file {output} is runnable.\") |\n|  | except Exception as e: |",
+            "score": 0.20165595,
+            "matched_query": "\"Write a Python program to merge the content of both the file in following format.: Emp_Dep (Ename, Eid, Esalary, EDID, DName,Dlocation) (Note: Merging should follow the condition-DID of Employee file should beequaltoDepartmentIDofdepartmentfile).\"",
+            "document_page": 41,
+            "text_overlap": 28.57,
+            "matched_terms": [
+                "content",
+                "file",
+                "merge",
+                "merging",
+                "python",
+                "write"
+            ]
+        },
+        {
+            "title": "A Teacher Evaluation System That Works",
+            "url": "https://www.niet.org/assets/ResearchAndPolicyResources/a556767548/teacher-evaluation-system-that-works-working-paper.pdf",
+            "content": "roles, mentor and master teachers assume greater responsibilities outside of the classroom assisting other teachers and overseeing the implementation of TAP. For instance, mentor and master teachers are provided with release time to engage in coaching and evaluation activities. The weighting for mentor and master teachers accounts for their assumption of leadership activities through reduced weighting in instruction and increased weighting on responsibilities. Additionally, ratings are weighted [...] matter for student outcomes, but the graphs demonstrate that teacher differences are not being measured by traditional, widely used methods of evaluation. A Teacher Evaluation System That Works 9 III. THE TAP SYSTEM The TAP system is based on four interrelated elements, designed to enhance not only teacher performance, but also teacher job satisfaction, recruitment, and retention:  Multiple career paths. In TAP schools, skilled teachers have the opportunity to serve as master and mentor [...] each domain of the Skills, Knowledge, and Responsibilities (SKR) rubrics, performance ratings on the indicators comprising that domain are averaged and used to assign a single score. Each domain average is then assigned a weight on which performance awards are based, as shown in Table B1. Table B1. Domain Weights by Teacher Type Domain Weights Career Mentor Master Designing and Planning Instruction 0.15 0.15 0.15 Learning Environment 0.05 0.05 0.05 Instruction 0.75 0.60 0.40 Responsibilities",
+            "score": 0.24166831,
+            "matched_query": "\"( Refer:FormatforProjectReport.pdf) Final Evaluation Demonstrate the working of system to the audience (teacher, Mentor students, clients), specifying the designand main featuresof the developed system.\"",
+            "document_page": 24,
+            "text_overlap": 27.78,
+            "matched_terms": [
+                "demonstrate",
+                "evaluation",
+                "mentor",
+                "system",
+                "teacher"
+            ]
+        },
+        {
+            "title": "Merging PDF files — pypdf 6.21.4 documentation",
+            "url": "https://pypdf.readthedocs.io/en/latest/user/merging-pdfs.html",
+            "content": "from  pypdf  import PdfWriter merger = PdfWriter() with(open(\"Seige_of_Vicksburg_Sample_OCR.pdf\", \"rb\") as input1, open(\"two-different-pages.pdf\", \"rb\") as input2, open(\"example.pdf\", \"rb\") as input3): # Add the first 3 pages of input1 document to output merger. append(fileobj = input1, pages =(0, 3)) # Insert the first page of input2 into the output beginning after the second page merger. merge(position = 2, fileobj = input2, pages =(0, 1)) # Append entire input3 document to the end of the [...] Merging PDF files\n View page source\n\n# Merging PDF files\n\n## Basic Example\n\n```\n from  pypdf  import PdfWriter merger = PdfWriter() for pdf in[\"example.pdf\",\"hello-world.pdf\",\"jpeg.pdf\"]: merger. append(pdf) merger. write(\"out-basic.pdf\")\n```\n\nFor more details, see an excellent answer on StackOverflow by Paul Rooney.\n\nNote\n\nDealing with large PDF files might reach the recursion limit of the current Python interpreter. In these cases, increasing the limit might help: [...] to the end of the output document merger. append(input3) # Write to an output PDF document merger. write(\"out-advanced.pdf\")",
+            "score": 0.14342749,
+            "matched_query": "\"Write a Python program to merge the content of both the file in following format.: Emp_Dep (Ename, Eid, Esalary, EDID, DName,Dlocation) (Note: Merging should follow the condition-DID of Employee file should beequaltoDepartmentIDofdepartmentfile).\"",
+            "document_page": 41,
+            "text_overlap": 23.81,
+            "matched_terms": [
+                "merge",
+                "merging",
+                "note",
+                "python",
+                "write"
+            ]
+        }
+    ],
+    "total_pages": 47,
+    "total_evidence": 0
+}

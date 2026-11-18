@@ -1,0 +1,162 @@
+{
+    "image_analysis": {
+        "image_description": "A tiger is lying down on the ground, partially obscured by green foliage and branches in the foreground. The tiger's body, head with distinctive stripes, and paws are visible against a rocky and earthy background near water.",
+        "visible_text": [],
+        "copyright_indicators": [],
+        "possible_creators_or_owners": [],
+        "brands_or_organizations": [],
+        "distinctive_visual_features": [
+            "Tiger resting on rocky ground",
+            "Obscured by leafy branches in the foreground",
+            "Water visible in the background"
+        ],
+        "search_queries": [
+            "tiger resting on rocky ground",
+            "tiger lying down behind foliage",
+            "wild tiger sleeping near water"
+        ],
+        "limitations": [
+            "No visible text, watermarks, or copyright notices in the image."
+        ]
+    },
+    "image_metadata": {
+        "embedded_metadata_found": false,
+        "metadata_sources": [],
+        "image_properties": {
+            "format": "JPEG",
+            "width": 1280,
+            "height": 853,
+            "mode": "RGB"
+        },
+        "exif": {},
+        "xmp": {},
+        "image_text_metadata": {},
+        "limitations": [
+            "No relevant embedded EXIF, XMP or image text metadata was found.",
+            "No embedded creator or copyright ownership information was found.",
+            "Embedded metadata can be edited or removed and does not independently prove copyright ownership or license validity."
+        ]
+    },
+    "wikimedia_lookup": {
+        "found": true,
+        "source": "Wikimedia Commons",
+        "match_method": "THUMBNAIL_FILENAME_MATCH",
+        "matches": [
+            {
+                "source": "Wikimedia Commons",
+                "found": true,
+                "file_title": "File:THE TIGER.jpg",
+                "source_page_url": "https://commons.wikimedia.org/wiki/File:THE_TIGER.jpg",
+                "original_file_url": "https://upload.wikimedia.org/wikipedia/commons/4/42/THE_TIGER.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+                "thumbnail_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/THE_TIGER.jpg/1280px-THE_TIGER.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+                "match_method": "THUMBNAIL_FILENAME_MATCH",
+                "match_confidence": "EXACT_PIXEL_MATCH",
+                "visual_match_verified": true,
+                "creator": "Kanishkrawat05",
+                "uploader": "Kanishkrawat05",
+                "credit": "Own work",
+                "license_name": "CC BY-SA 4.0",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+                "usage_terms": "Creative Commons Attribution-Share Alike 4.0",
+                "attribution_required": "true",
+                "copyrighted": "True",
+                "date_original": "2015-06-08 05:36:13",
+                "description": "THIS ONE WAS TAKEN WHEN THE TIGER WAS SLEEPING IN THE SHELTER OF THE TREE, NEAR A POND IN THE HOT SUNNY DAY.",
+                "permission": null,
+                "source_credit": null,
+                "width": 5184,
+                "height": 3456,
+                "file_size_bytes": 6866403,
+                "sha1": "ab60ff0653ba890a6f67e0831e87bd1a3b3b9d75",
+                "uploaded_version_date": "2016-06-20T09:07:45Z",
+                "license_listed": true,
+                "limitations": [
+                    "The uploaded image pixels exactly match the corresponding Wikimedia Commons file or thumbnail. Creator and license information are reported as listed on the Commons page.",
+                    "Wikimedia Commons metadata is supplied by the file page and uploader. It should not be treated as an independent legal determination of ownership."
+                ]
+            }
+        ],
+        "limitations": []
+    },
+    "search_queries": [
+        "tiger resting on rocky ground",
+        "tiger lying down behind foliage",
+        "wild tiger sleeping near water"
+    ],
+    "external_sources": [
+        {
+            "title": "Tigers thrive in rocky terrain for safety and solitude - Facebook",
+            "url": "https://www.facebook.com/groups/951357615665893/posts/2328439697957671",
+            "content": "Tigers use elevated rocks and boulders for a clear vantage to observe surroundings, rest in safety and enjoy solitude, and young tigers pause on",
+            "score": 0.6807725,
+            "matched_query": "tiger resting on rocky ground"
+        },
+        {
+            "title": "Tiger's Rocky Throne: Surveying the Landscape from Elevated Ground",
+            "url": "https://www.facebook.com/groups/wildlifeworldphotographers/posts/3101375520058075",
+            "content": "Tigers use elevated rocks and boulders for a clear vantage point to observe surroundings, rest in safety and enjoy solitude, and rocky terrain",
+            "score": 0.6274948,
+            "matched_query": "tiger resting on rocky ground"
+        },
+        {
+            "title": "A large tiger laying on top of a pile of rocks - Free Photo on Unsplash",
+            "url": "https://unsplash.com/photos/a-large-tiger-laying-on-top-of-a-pile-of-rocks-4J--jRSeh5M",
+            "content": "a large tiger laying on top of a pile of rocks. Download this free HD photo of animal, wildlife, tiger, and brown in Scano Al Brembo, Italia by",
+            "score": 0.47639695,
+            "matched_query": "tiger resting on rocky ground"
+        },
+        {
+            "title": "Instagram",
+            "url": "https://www.instagram.com/reel/DeOr8bzP4yT",
+            "content": "A tiger’s walk through the forest is more than a striking sight it is a glimpse into how it moves through its habitat.  \n  \nWith powerful limbs, padded paws and a flexible body, the tiger is built to move efficiently across different terrains. Its movement may take it through dense vegetation, grasslands, rocky ground and watercourses as it travels across its home range.  \n  \nEvery step is part of life in the wild quiet, deliberate and purposeful.  \n  \nWatch closely. Respect the wild. [...] Photo by Pench National Park - Official Handle on November 09, 2026. May be an image of rhinoceros, bear, brown bear, poster, magazine and text.\n\nPhoto by Pench National Park - Official Handle on November 07, 2026. May be an image of text.\n\nPhoto by Pench National Park - Official Handle on November 07, 2026. May be an image of pangolin, squirrel, rodent and text.\n\nPhoto by Department of Forest, MP on November 05, 2026. May be an image of tiger, poster, outdoors and text.\n\nSee more posts\n\n--- [...] #wildlifeconservation #tigersighting #penchtigerreserve #tigerofpench #naturelovers",
+            "score": 0.4653571,
+            "matched_query": "tiger resting on rocky ground"
+        },
+        {
+            "title": "77K views · 1.1K reactions | Tiger relaxing in river and marking her territory 🐯🐾 | Ryan Shirley",
+            "url": "https://www.facebook.com/shirley.films/videos/tiger-relaxing-in-river-and-marking-her-territory-/1311861634083362",
+            "content": "[](\n\nWaking up before sunrise to hike to the top of a mountain in northern Ethiopia with the local monk is a memory we will never forget 🇪🇹 The mountains of Gheralta are home to several cliffside churches. The monks hike to them daily to worship and show their devotion ⛪️ #ethiopia #tigray #christianity\n\nRyan Shirley\n\n1.7K views\n\n · \n\n1d ago\n\nImage 9: Video thumbnail 0:26\n\n[](\n\nBálkódy Floating Village: Hungary’s Unusual Floating Cottages\n\nRyan Shirley\n\n626 views\n\n · \n\n1d ago [...] [](\n\nPatagonia Puma Expedition: We Saw a Mother and Cub!\n\nRyan Shirley\n\n18.7K views\n\n · \n\n4d ago\n\nImage 14: Video thumbnail 1:55\n\n[](\n\nTorres del Paine Hike: The Epic Trek to Las Torres\n\nRyan Shirley\n\n18.9K views\n\n · \n\n5d ago\n\nPages\n\nPublic figure\n\nReel creator\n\nRyan Shirley\n\nVideos\n\nHome\n\nLive\n\nExplore\n\n   Privacy · \n   Terms · \n   Advertising · \n   Ad Choices · \n   Cookies · \n   More \n\nSee more on Facebook\n\nSee more on Facebook\n\nEmail or phone number\n\n \n\nPassword\n\n \n\nLog In\n\nForgot password? [...] Forgot password?\n\nor\n\nCreate new account",
+            "score": 0.14608724,
+            "matched_query": "tiger resting on rocky ground"
+        }
+    ],
+    "total_sources": 5,
+    "risk_assessment": {
+        "risk_level": "LOW",
+        "summary": "The uploaded image is an exact visual match for a file hosted on Wikimedia Commons. It is available under an open Creative Commons license, which allows for reuse provided the license terms are followed.",
+        "copyright_indicators": [
+            "No visible watermarks or copyright notices appear on the image itself, but the image is verified to be sourced from Wikimedia Commons where ownership and licensing are declared."
+        ],
+        "possible_source_matches": [
+            {
+                "title": "File:THE TIGER.jpg - Wikimedia Commons",
+                "url": "https://commons.wikimedia.org/wiki/File:THE_TIGER.jpg",
+                "reason": "The uploaded image pixels exactly match this Wikimedia Commons file."
+            }
+        ],
+        "ownership_findings": [
+            "The creator and uploader listed on Wikimedia Commons is Kanishkrawat05, with the credit listed as 'Own work'."
+        ],
+        "license_findings": [
+            "The image is licensed under Creative Commons Attribution-Share Alike 4.0 (CC BY-SA 4.0)."
+        ],
+        "recommendations": [
+            "You may reuse or adapt the image as long as you comply with the CC BY-SA 4.0 license terms.",
+            "Provide appropriate attribution to the creator (Kanishkrawat05), include a link to the license, and indicate if changes were made.",
+            "Ensure that any derivative works or adaptations are distributed under the same CC BY-SA 4.0 license."
+        ],
+        "limitations": [
+            "This is a preliminary automated assessment, not legal advice.",
+            "Wikimedia Commons metadata is supplied by the file page and uploader and should be verified independently if used for commercial or legal compliance purposes."
+        ],
+        "verification_status": {
+            "original_source": "VERIFIED",
+            "license": "VERIFIED"
+        }
+    },
+    "metadata": {
+        "filename": "1280px-THE_TIGER.jpg",
+        "mime_type": "image/jpeg",
+        "file_size_bytes": 274185
+    }
+}

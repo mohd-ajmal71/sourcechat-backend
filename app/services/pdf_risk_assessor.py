@@ -1,7 +1,6 @@
 
 import json
 import re
-
 from app.services.llm import model
 
 
@@ -16,7 +15,6 @@ LICENSE_CLASSIFICATIONS = {
 
 
 def prepare_assessment_data(verification_report):
-
     evidence = verification_report.get("evidence", [])
     external_sources = verification_report.get("external_sources", [])
     search_queries = verification_report.get("search_queries", [])
@@ -25,7 +23,6 @@ def prepare_assessment_data(verification_report):
     seen_evidence = set()
 
     for item in evidence:
-
         evidence_type = item.get("type", "unknown")
         page = item.get("page")
         evidence_text = str(item.get("text", "")).strip()
@@ -59,7 +56,6 @@ def prepare_assessment_data(verification_report):
     selected_sources = []
 
     for source in external_sources[:5]:
-
         selected_sources.append({
             "title": source.get("title", ""),
             "url": source.get("url", ""),
@@ -74,7 +70,6 @@ def prepare_assessment_data(verification_report):
     selected_queries = []
 
     for query in search_queries[:3]:
-
         selected_queries.append({
             "sentence": str(query.get("sentence", ""))[:700],
             "page": query.get("page"),
@@ -98,7 +93,6 @@ def prepare_assessment_data(verification_report):
 
 
 def extract_json_response(response_text):
-
     if not response_text:
         raise ValueError("Gemini returned an empty response")
 
@@ -137,7 +131,6 @@ def extract_json_response(response_text):
 
 
 def apply_license_scope_safeguards(assessment, evidence):
-
     document_scope_phrases = [
         "entire document",
         "whole document",
@@ -166,9 +159,12 @@ def apply_license_scope_safeguards(assessment, evidence):
     evidence_text = " ".join(
         str(item.get("text", ""))
         for item in evidence
+        if isinstance(item, dict)
     ).lower()
 
     for item in assessment:
+        if not isinstance(item, dict):
+            continue
 
         classification = str(
             item.get("classification", "")
@@ -220,9 +216,7 @@ def apply_license_scope_safeguards(assessment, evidence):
         )
 
         if classification == "DOCUMENT_WIDE_LICENSE":
-
             if not has_document_scope or not has_license_grant:
-
                 item["classification"] = "LICENSE_SCOPE_UNCLEAR"
                 item["scope"] = "Unclear"
 
@@ -232,9 +226,7 @@ def apply_license_scope_safeguards(assessment, evidence):
                 )
 
         elif classification == "SECTION_SPECIFIC_LICENSE":
-
             if not has_license_grant:
-
                 if has_template_reference:
                     item["classification"] = (
                         "LICENSE_TEMPLATE_OR_EXAMPLE"
@@ -258,11 +250,8 @@ def apply_license_scope_safeguards(assessment, evidence):
                     )
 
         elif classification == "COPYRIGHT_RESERVED":
-
             if "document-wide" in scope or "entire document" in scope:
-
                 if not has_document_scope:
-
                     item["scope"] = "Unclear"
 
                     uncertainties.append(
@@ -272,11 +261,9 @@ def apply_license_scope_safeguards(assessment, evidence):
                     )
 
         elif classification == "LICENSE_TEMPLATE_OR_EXAMPLE":
-
             item["scope"] = "Template/example only"
 
         elif classification == "LICENSE_SCOPE_UNCLEAR":
-
             item["scope"] = "Unclear"
 
         item.setdefault("license_name", "Not identified")
@@ -287,8 +274,172 @@ def apply_license_scope_safeguards(assessment, evidence):
     return assessment
 
 
-def assess_copyright_risk(verification_report):
+def apply_risk_level_safeguards(result, evidence):
+    license_info = result.get("license_assessment", {})
 
+    if not isinstance(license_info, dict):
+        license_info = {}
+
+    scope_assessment = result.get(
+        "license_scope_assessment",
+        []
+    )
+
+    if not isinstance(scope_assessment, list):
+        scope_assessment = []
+
+    evidence_assessment = result.get(
+        "evidence_assessment",
+        []
+    )
+
+    if not isinstance(evidence_assessment, list):
+        evidence_assessment = []
+
+    identified_licenses = license_info.get(
+        "identified_licenses",
+        []
+    )
+
+    if not isinstance(identified_licenses, list):
+        identified_licenses = []
+
+    concerns = license_info.get("concerns", [])
+
+    if not isinstance(concerns, list):
+        concerns = [str(concerns)]
+
+    classifications = {
+        str(item.get("classification", "")).upper()
+        for item in scope_assessment
+        if isinstance(item, dict)
+    }
+
+    evidence_text_parts = []
+
+    for item in evidence:
+        if isinstance(item, dict):
+            evidence_text_parts.append(
+                str(item.get("text", ""))
+            )
+
+    for item in evidence_assessment:
+        if isinstance(item, dict):
+            evidence_text_parts.append(
+                str(item.get("finding", ""))
+            )
+
+    evidence_text_parts.extend(
+        str(concern)
+        for concern in concerns
+    )
+
+    evidence_text = " ".join(evidence_text_parts).lower()
+
+    reserved_phrases = [
+        "all rights reserved",
+        "rights reserved",
+        "copyright reserved"
+    ]
+
+    has_reserved_notice = (
+        "COPYRIGHT_RESERVED" in classifications
+        or any(
+            phrase in evidence_text
+            for phrase in reserved_phrases
+        )
+    )
+
+    license_names = []
+
+    for license_name in identified_licenses:
+        if isinstance(license_name, dict):
+            name = str(
+                license_name.get("name", "")
+            ).strip()
+        else:
+            name = str(license_name).strip()
+
+        if name.lower() not in {
+            "",
+            "not identified",
+            "unknown",
+            "unspecified",
+            "none"
+        }:
+            license_names.append(name)
+
+    for item in scope_assessment:
+        if isinstance(item, dict):
+            name = str(
+                item.get("license_name", "")
+            ).strip()
+
+            if name.lower() not in {
+                "",
+                "not identified",
+                "unknown",
+                "unspecified",
+                "none"
+            }:
+                license_names.append(name)
+
+    has_document_wide_license = (
+        "DOCUMENT_WIDE_LICENSE" in classifications
+        and bool(license_names)
+    )
+
+    current_risk = str(
+        result.get("risk_level", "INCONCLUSIVE")
+    ).upper()
+
+    if current_risk not in {
+        "LOW",
+        "MEDIUM",
+        "HIGH",
+        "INCONCLUSIVE"
+    }:
+        current_risk = "INCONCLUSIVE"
+
+    if has_reserved_notice and not has_document_wide_license:
+        result["risk_level"] = "HIGH"
+
+        result["summary"] = (
+            "High copyright and licensing risk. The document contains "
+            "an explicit copyright-reserved or all-rights-reserved notice, "
+            "and an applicable document-wide reuse license has not been "
+            "established. Permission should be verified before reusing "
+            "the protected content."
+        )
+
+    elif classifications.intersection({
+        "LICENSE_SCOPE_UNCLEAR",
+        "LICENSE_TEMPLATE_OR_EXAMPLE",
+        "SECTION_SPECIFIC_LICENSE"
+    }):
+        if current_risk in {"LOW", "INCONCLUSIVE"}:
+            result["risk_level"] = "MEDIUM"
+
+            existing_summary = str(
+                result.get("summary", "")
+            ).strip()
+
+            additional_summary = (
+                "The license scope is unclear, limited to a section, "
+                "or appears in a template/example. Its applicability "
+                "to the content being reused should be verified."
+            )
+
+            result["summary"] = (
+                f"{existing_summary} {additional_summary}"
+                if existing_summary
+                else additional_summary
+            )
+
+    return result
+
+
+def assess_copyright_risk(verification_report):
     assessment_data = prepare_assessment_data(
         verification_report
     )
@@ -332,29 +483,37 @@ Classify each meaningful license-related finding using
 one of these exact classifications:
 
 DOCUMENT_WIDE_LICENSE:
+
 Use only when there is explicit evidence that a license
 applies to the entire uploaded document or publication.
 
 SECTION_SPECIFIC_LICENSE:
+
 Use only when evidence explicitly establishes that a license
 applies to a particular section, annex, contribution or part.
 
 LICENSE_TEMPLATE_OR_EXAMPLE:
+
 Use when sample license text, model license terms,
 copyright-page examples or licensing templates are included.
+
 The presence of a license's legal text does not automatically
 mean the uploaded document is licensed under it.
 
 PUBLIC_DOMAIN_CONTENT:
+
 Use only when evidence establishes that particular content
 is actually in the public domain.
+
 A general discussion of public-domain material is insufficient.
 
 COPYRIGHT_RESERVED:
+
 Use when an explicit copyright-reserved or all-rights-reserved
 notice is identified.
 
 LICENSE_SCOPE_UNCLEAR:
+
 Use when a license is mentioned but its actual applicability
 cannot be established.
 
@@ -385,6 +544,7 @@ cannot be established.
 6. RECOMMENDATIONS
 
 Provide practical recommendations based on the findings.
+
 Mention when a user should verify the license of a particular
 publication or section before reusing it.
 
@@ -395,7 +555,6 @@ Use exactly this structure:
 {{
     "risk_level": "LOW | MEDIUM | HIGH | INCONCLUSIVE",
     "summary": "Brief overall assessment",
-
     "original_source_matches": [
         {{
             "title": "Source title",
@@ -403,7 +562,6 @@ Use exactly this structure:
             "reason": "Why this source is considered the original"
         }}
     ],
-
     "evidence_assessment": [
         {{
             "type": "Evidence type",
@@ -411,7 +569,6 @@ Use exactly this structure:
             "finding": "Explanation of the evidence"
         }}
     ],
-
     "source_assessment": [
         {{
             "title": "Source title",
@@ -423,13 +580,11 @@ Use exactly this structure:
             "reason": "Explanation"
         }}
     ],
-
     "license_assessment": {{
         "identified_licenses": [],
         "ownership_findings": [],
         "concerns": []
     }},
-
     "license_scope_assessment": [
         {{
             "classification": "LICENSE_SCOPE_UNCLEAR",
@@ -442,7 +597,6 @@ Use exactly this structure:
             "uncertainties": []
         }}
     ],
-
     "recommendations": [],
     "limitations": []
 }}
@@ -507,6 +661,11 @@ This is a preliminary automated assessment, not legal advice.
 
     result["license_scope_assessment"] = apply_license_scope_safeguards(
         result["license_scope_assessment"],
+        assessment_data["evidence"]
+    )
+
+    result = apply_risk_level_safeguards(
+        result,
         assessment_data["evidence"]
     )
 

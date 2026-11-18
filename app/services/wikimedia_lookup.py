@@ -7,7 +7,7 @@ from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 from io import BytesIO
 
-from PIL import Image, ImageChops
+from PIL import Image, ImageChops, ImageOps
 
 
 API_URL = "https://commons.wikimedia.org/w/api.php"
@@ -18,10 +18,11 @@ USER_AGENT = (
 )
 
 MAX_DOWNLOAD_SIZE = 15 * 1024 * 1024
+MAX_DHASH_DISTANCE = 6
+MAX_AHASH_DISTANCE = 10
 
 
 class HTMLTextExtractor(HTMLParser):
-
     def __init__(self):
         super().__init__(convert_charrefs=True)
         self.parts = []
@@ -35,7 +36,6 @@ class HTMLTextExtractor(HTMLParser):
 
 
 def clean_metadata_value(value):
-
     if value is None:
         return None
 
@@ -56,9 +56,7 @@ def clean_metadata_value(value):
 
 
 def make_filename_candidates(filename):
-
     basename = Path(filename).name
-
     candidates = []
 
     def add_candidate(name):
@@ -85,7 +83,6 @@ def make_filename_candidates(filename):
     current_candidates = list(candidates)
 
     for candidate in current_candidates:
-
         without_copy_suffix = re.sub(
             r"\s*\(\d+\)(?=\.[^.]+$)",
             "",
@@ -98,7 +95,6 @@ def make_filename_candidates(filename):
 
 
 def api_request(params):
-
     query_params = {
         "action": "query",
         "format": "json",
@@ -123,7 +119,6 @@ def api_request(params):
 
 
 def download_image(url):
-
     if not url:
         return None
 
@@ -136,9 +131,7 @@ def download_image(url):
         )
 
         with urlopen(request, timeout=20) as response:
-            image_bytes = response.read(
-                MAX_DOWNLOAD_SIZE + 1
-            )
+            image_bytes = response.read(MAX_DOWNLOAD_SIZE + 1)
 
         if len(image_bytes) > MAX_DOWNLOAD_SIZE:
             return None
@@ -149,17 +142,78 @@ def download_image(url):
         return None
 
 
-def compare_image_pixels(uploaded_bytes, source_bytes):
+def prepare_image(image_bytes):
+    with Image.open(BytesIO(image_bytes)) as image:
+        image = ImageOps.exif_transpose(image)
+        return image.convert("L").copy()
 
+
+def calculate_dhash(image):
+    resampling = getattr(
+        Image,
+        "Resampling",
+        Image
+    )
+
+    resized = image.resize(
+        (9, 8),
+        resampling.LANCZOS
+    )
+
+    pixels = list(resized.getdata())
+    hash_value = 0
+
+    for row in range(8):
+        for column in range(8):
+            left = pixels[row * 9 + column]
+            right = pixels[row * 9 + column + 1]
+
+            hash_value = (hash_value << 1) | (left > right)
+
+    return hash_value
+
+
+def calculate_ahash(image):
+    resampling = getattr(
+        Image,
+        "Resampling",
+        Image
+    )
+
+    resized = image.resize(
+        (8, 8),
+        resampling.LANCZOS
+    )
+
+    pixels = list(resized.getdata())
+    average = sum(pixels) / len(pixels)
+
+    hash_value = 0
+
+    for pixel in pixels:
+        hash_value = (hash_value << 1) | (pixel >= average)
+
+    return hash_value
+
+
+def hamming_distance(hash_one, hash_two):
+    return (hash_one ^ hash_two).bit_count()
+
+
+def compare_image_pixels(uploaded_bytes, source_bytes):
     if not source_bytes:
         return False
 
     try:
         with Image.open(BytesIO(uploaded_bytes)) as uploaded:
             with Image.open(BytesIO(source_bytes)) as source:
+                uploaded_rgb = ImageOps.exif_transpose(
+                    uploaded
+                ).convert("RGB")
 
-                uploaded_rgb = uploaded.convert("RGB")
-                source_rgb = source.convert("RGB")
+                source_rgb = ImageOps.exif_transpose(
+                    source
+                ).convert("RGB")
 
                 if uploaded_rgb.size != source_rgb.size:
                     return False
@@ -175,47 +229,117 @@ def compare_image_pixels(uploaded_bytes, source_bytes):
         return False
 
 
+def compare_image_similarity(uploaded_bytes, source_bytes):
+    if not source_bytes:
+        return False
+
+    try:
+        uploaded_image = prepare_image(uploaded_bytes)
+        source_image = prepare_image(source_bytes)
+
+        uploaded_dhash = calculate_dhash(uploaded_image)
+        source_dhash = calculate_dhash(source_image)
+
+        uploaded_ahash = calculate_ahash(uploaded_image)
+        source_ahash = calculate_ahash(source_image)
+
+        dhash_distance = hamming_distance(
+            uploaded_dhash,
+            source_dhash
+        )
+
+        ahash_distance = hamming_distance(
+            uploaded_ahash,
+            source_ahash
+        )
+
+        return (
+            dhash_distance <= MAX_DHASH_DISTANCE
+            and ahash_distance <= MAX_AHASH_DISTANCE
+        )
+
+    except Exception:
+        return False
+
+
+def get_image_match_details(uploaded_bytes, source_bytes):
+    if not source_bytes:
+        return {
+            "matched": False,
+            "method": "NO_MATCH",
+            "dhash_distance": None,
+            "ahash_distance": None
+        }
+
+    if compare_image_pixels(uploaded_bytes, source_bytes):
+        return {
+            "matched": True,
+            "method": "EXACT_PIXEL_MATCH",
+            "dhash_distance": 0,
+            "ahash_distance": 0
+        }
+
+    try:
+        uploaded_image = prepare_image(uploaded_bytes)
+        source_image = prepare_image(source_bytes)
+
+        dhash_distance = hamming_distance(
+            calculate_dhash(uploaded_image),
+            calculate_dhash(source_image)
+        )
+
+        ahash_distance = hamming_distance(
+            calculate_ahash(uploaded_image),
+            calculate_ahash(source_image)
+        )
+
+        matched = (
+            dhash_distance <= MAX_DHASH_DISTANCE
+            and ahash_distance <= MAX_AHASH_DISTANCE
+        )
+
+        return {
+            "matched": matched,
+            "method": (
+                "PERCEPTUAL_HASH_MATCH"
+                if matched
+                else "NO_MATCH"
+            ),
+            "dhash_distance": dhash_distance,
+            "ahash_distance": ahash_distance
+        }
+
+    except Exception:
+        return {
+            "matched": False,
+            "method": "NO_MATCH",
+            "dhash_distance": None,
+            "ahash_distance": None
+        }
+
+
 def compare_with_commons_image(
     uploaded_bytes,
     image_info,
     uploaded_width,
     uploaded_height
 ):
-
-    original_width = image_info.get("width")
-    original_height = image_info.get("height")
-
-    if (
-        uploaded_width == original_width
-        and uploaded_height == original_height
-    ):
-        source_url = image_info.get("url")
-
-    else:
-        thumb_width = image_info.get("thumbwidth")
-        thumb_height = image_info.get("thumbheight")
-
-        if (
-            thumb_width == uploaded_width
-            and thumb_height == uploaded_height
-        ):
-            source_url = image_info.get("thumburl")
-        else:
-            return False
+    source_url = image_info.get("url")
 
     source_bytes = download_image(source_url)
 
     if not source_bytes:
         return False
 
-    return compare_image_pixels(
+    match_details = get_image_match_details(
         uploaded_bytes,
         source_bytes
     )
 
+    return match_details["matched"]
+
 
 def get_metadata_value(extmetadata, key):
-
     value = extmetadata.get(key)
 
     if isinstance(value, dict):
@@ -232,22 +356,27 @@ def create_file_result(
     uploaded_height=None,
     match_method="FILENAME_MATCH"
 ):
-
     extmetadata = image_info.get("extmetadata", {})
 
-    visual_match_verified = False
+    match_details = {
+        "matched": False,
+        "method": "NOT_CHECKED",
+        "dhash_distance": None,
+        "ahash_distance": None
+    }
 
-    if (
-        uploaded_bytes is not None
-        and uploaded_width is not None
-        and uploaded_height is not None
-    ):
-        visual_match_verified = compare_with_commons_image(
-            uploaded_bytes,
-            image_info,
-            uploaded_width,
-            uploaded_height
+    if uploaded_bytes is not None:
+        source_bytes = download_image(
+            image_info.get("url")
         )
+
+        match_details = get_image_match_details(
+            uploaded_bytes,
+            source_bytes
+        )
+
+    visual_match_verified = match_details["matched"]
+    verification_method = match_details["method"]
 
     license_name = get_metadata_value(
         extmetadata,
@@ -264,6 +393,21 @@ def create_file_result(
         "Artist"
     )
 
+    if verification_method == "EXACT_PIXEL_MATCH":
+        match_confidence = "EXACT_PIXEL_MATCH"
+
+    elif verification_method == "PERCEPTUAL_HASH_MATCH":
+        match_confidence = "HIGH_VISUAL_SIMILARITY"
+
+    elif match_method in [
+        "FILENAME_MATCH",
+        "THUMBNAIL_FILENAME_MATCH"
+    ]:
+        match_confidence = "FILENAME_MATCH_ONLY"
+
+    else:
+        match_confidence = "DESCRIPTION_SEARCH_CANDIDATE"
+
     result = {
         "source": "Wikimedia Commons",
         "found": True,
@@ -272,17 +416,11 @@ def create_file_result(
         "original_file_url": image_info.get("url"),
         "thumbnail_url": image_info.get("thumburl"),
         "match_method": match_method,
-        "match_confidence": (
-            "EXACT_PIXEL_MATCH"
-            if visual_match_verified
-            else "FILENAME_MATCH_ONLY"
-            if match_method in [
-                "FILENAME_MATCH",
-                "THUMBNAIL_FILENAME_MATCH"
-            ]
-            else "DESCRIPTION_SEARCH_CANDIDATE"
-        ),
+        "match_confidence": match_confidence,
         "visual_match_verified": visual_match_verified,
+        "verification_method": verification_method,
+        "dhash_distance": match_details["dhash_distance"],
+        "ahash_distance": match_details["ahash_distance"],
         "creator": creator,
         "uploader": image_info.get("user"),
         "credit": get_metadata_value(
@@ -330,22 +468,31 @@ def create_file_result(
         "limitations": []
     }
 
-    if visual_match_verified:
+    if verification_method == "EXACT_PIXEL_MATCH":
         result["limitations"].append(
-            "The uploaded image pixels exactly match the corresponding "
-            "Wikimedia Commons file or thumbnail. Creator and license "
-            "information are reported as listed on the Commons page."
+            "The uploaded image pixels exactly match the "
+            "corresponding Wikimedia Commons file."
         )
+
+    elif verification_method == "PERCEPTUAL_HASH_MATCH":
+        result["limitations"].append(
+            "The uploaded image has a strong perceptual similarity "
+            "to the Wikimedia Commons file. Resizing or compression "
+            "may explain pixel differences. This is not proof of "
+            "ownership or an independent legal determination."
+        )
+
     else:
         result["limitations"].append(
-            "The Commons filename matched, but exact image identity "
-            "could not be confirmed by pixel comparison."
+            "The Commons result was found through filename or "
+            "description search, but visual identity could not "
+            "be confirmed."
         )
 
     result["limitations"].append(
-        "Wikimedia Commons metadata is supplied by the file page and "
-        "uploader. It should not be treated as an independent legal "
-        "determination of ownership."
+        "Wikimedia Commons metadata is supplied by the file page "
+        "and uploader. It should not be treated as an independent "
+        "legal determination of ownership."
     )
 
     return result
@@ -358,10 +505,13 @@ def get_file_information(
     uploaded_height=None,
     match_method="FILENAME_MATCH"
 ):
-
     response = api_request({
         "prop": "imageinfo",
-        "titles": title if title.startswith("File:") else f"File:{title}",
+        "titles": (
+            title
+            if title.startswith("File:")
+            else f"File:{title}"
+        ),
         "iiprop": (
             "url|size|sha1|timestamp|user|extmetadata"
         ),
@@ -377,13 +527,18 @@ def get_file_information(
         )
     })
 
-    pages = response.get("query", {}).get("pages", [])
+    pages = response.get(
+        "query",
+        {}
+    ).get(
+        "pages",
+        []
+    )
 
     if not isinstance(pages, list):
         pages = list(pages.values())
 
     for page in pages:
-
         if "missing" in page:
             continue
 
@@ -410,15 +565,20 @@ def search_commons_by_description(
     uploaded_width,
     uploaded_height
 ):
-
     if not description:
         return []
+
+    search_query = re.sub(
+        r"\s+",
+        " ",
+        description
+    ).strip()[:250]
 
     response = api_request({
         "list": "search",
         "srnamespace": 6,
-        "srsearch": description[:250],
-        "srlimit": 3
+        "srsearch": search_query,
+        "srlimit": 10
     })
 
     search_results = response.get(
@@ -432,7 +592,6 @@ def search_commons_by_description(
     matches = []
 
     for item in search_results:
-
         title = item.get("title")
 
         if not title:
@@ -453,6 +612,14 @@ def search_commons_by_description(
         except Exception:
             continue
 
+    matches.sort(
+        key=lambda item: (
+            item.get("visual_match_verified") is True,
+            item.get("verification_method") == "EXACT_PIXEL_MATCH"
+        ),
+        reverse=True
+    )
+
     return matches
 
 
@@ -461,7 +628,6 @@ def lookup_wikimedia_commons(
     uploaded_bytes,
     image_description=None
 ):
-
     result = {
         "found": False,
         "source": "Wikimedia Commons",
@@ -472,6 +638,7 @@ def lookup_wikimedia_commons(
 
     try:
         with Image.open(BytesIO(uploaded_bytes)) as image:
+            image = ImageOps.exif_transpose(image)
             uploaded_width, uploaded_height = image.size
 
     except Exception:
@@ -485,18 +652,15 @@ def lookup_wikimedia_commons(
         filename
     )
 
-    for index, candidate in enumerate(filename_candidates):
-
+    for candidate in filename_candidates:
         try:
-            if index > 0 and candidate.startswith(
-                tuple(f"{width}px-" for width in [0])
-            ):
-                continue
-
             match_method = (
                 "THUMBNAIL_FILENAME_MATCH"
-                if re.match(r"^\d+px-", filename, re.IGNORECASE)
-                and candidate != filename
+                if re.match(
+                    r"^\d+px-",
+                    Path(filename).name,
+                    re.IGNORECASE
+                ) and candidate != Path(filename).name
                 else "FILENAME_MATCH"
             )
 
@@ -509,7 +673,6 @@ def lookup_wikimedia_commons(
             )
 
             if match:
-
                 result["found"] = True
                 result["match_method"] = match_method
                 result["matches"] = [match]
@@ -520,7 +683,6 @@ def lookup_wikimedia_commons(
             continue
 
     if image_description:
-
         try:
             description_matches = search_commons_by_description(
                 image_description,
@@ -530,14 +692,14 @@ def lookup_wikimedia_commons(
             )
 
             if description_matches:
-
                 result["found"] = True
                 result["match_method"] = "DESCRIPTION_SEARCH"
                 result["matches"] = description_matches
 
                 result["limitations"].append(
-                    "These results were discovered using a text description. "
-                    "They are possible source matches, not confirmed copies."
+                    "These results were discovered using a text "
+                    "description. They are possible source matches "
+                    "unless visual similarity is independently detected."
                 )
 
                 return result

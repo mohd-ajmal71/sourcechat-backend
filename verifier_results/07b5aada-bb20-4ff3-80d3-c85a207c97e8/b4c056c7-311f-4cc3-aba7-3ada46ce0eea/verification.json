@@ -1,0 +1,89 @@
+{
+    "metadata": {
+        "source": "uploads\\07b5aada-bb20-4ff3-80d3-c85a207c97e8\\b4c056c7-311f-4cc3-aba7-3ada46ce0eea\\lab_manual_3rd.pdf",
+        "page": 0
+    },
+    "evidence": [],
+    "search_queries": [
+        {
+            "sentence": "TargetApplication Users Examples EduTracker AWeb BasedStudentPerformanceManagementSystemforEducationalInstitutions SmartInventory IoT EnabledInventoryManagementSystemforSmallBusinesses HealthMonitor",
+            "page": 10,
+            "score": 10.0
+        },
+        {
+            "sentence": "Provenance Authorcredentials publicationvenue Relevance Howitrelatestoyourproject Objectivity Biasassessment balancedperspective Method Researchmethodologyused",
+            "page": 12,
+            "score": 10.0
+        },
+        {
+            "sentence": "Listimplementedfunctionalities aimfor Feature Descriptionandstatus Feature Descriptionandstatus Feature Descriptionandstatus Preliminary Results",
+            "page": 18,
+            "score": 10.0
+        }
+    ],
+    "external_sources": [
+        {
+            "title": "Microsoft's Incident Reports for PennO365",
+            "url": "https://mailservices.isc.upenn.edu/computing/email/penno365/alerts/ms-incidents.html",
+            "content": "and will provide another update within the next 30 minutes.  This information is preliminary and may be subject to changes, corrections, and updates. |  ---  CP1527498 - Some users may be unable to load chat history or previously pinned chats, and can't pin chats in Microsoft 365 Copilot  |  |  |  --- | | Status: | postIncidentReviewPublished | | Start Time: | Tue Oct 27 15:58:45 2026 | | End Time: | Wed Nov 4 16:08:21 2026 | | Service: | Microsoft Copilot (Microsoft 365) | | Feature Group: | [...] Next update by: Wednesday, November 11, 2026, at 2:00 PM UTC |  ---  OP1549991 - Users may have been unable to utilize the Side Pane in Microsoft Word and received an error message  |  |  |  --- | | Status: | serviceRestored | | Start Time: | Thu Nov 12 04:57:00 2026 | | End Time: | Thu Nov 12 08:18:00 2026 | | Service: | Microsoft 365 apps | | Feature Group: | Office Client issues | | Classification: | advisory | | Last Updated: | Thu Nov 12 09:11:11 2026 | | Root Cause: | A recent change to [...] expecting refreshes using the Dynamics 365 Business Central connector in Power BI.   Next update by: Thursday, October 15, 2026, at 2:00 PM UTC |  ---  OO1508394 - Users are unable to open presentations in PowerPoint Online for the web  |  |  |  --- | | Status: | serviceRestored | | Start Time: | Wed Oct 14 22:38:00 2026 | | End Time: | Thu Oct 15 03:00:00 2026 | | Service: | Microsoft 365 for the web | | Feature Group: | PowerPoint Online | | Classification: | advisory | | Last Updated: | Thu",
+            "score": 0.1301748,
+            "matched_query": "\"Listimplementedfunctionalities aimfor Feature Descriptionandstatus Feature Descriptionandstatus Feature Descriptionandstatus Preliminary Results\"",
+            "document_page": 18,
+            "text_overlap": 33.33,
+            "matched_terms": [
+                "feature",
+                "preliminary"
+            ]
+        },
+        {
+            "title": "2026 Optimizely Feature Experimentation release notes - Release Notes for Feature Experimentation",
+            "url": "https://docs.optimizely.com/feature-experimentation/release-notes/2026-optimizely-feature-experimentation-release-notes",
+            "content": "Released Flag StatusesFlag Statuses, which automatically assign one of six lifecycle statuses to each flag: Draft, Testing, Live, Paused, Stale, or Archived. Statuses are calculated from a flag’s ruleset state, environment, and recent activity. Use flag statuses to surface flags that need attention and prevent unused flags from accumulating in your project.\n\n## March 30 [...] ## May 18\n\n (Beta) Released Feature RolloutsFeature Rollouts, which is a rule type that combines the simplicity of targeted deliveries with the measurement power of A/B tests. Feature Rollouts let you progressively release a single variation to defined audiences, control traffic allocation, and track impressions, conversions, and business metrics during the release. Use Feature Rollouts when you want progressive exposure with metric tracking, not a binary on or off delivery. [...] exp\\_execute\\_query – Executes a template-based query to fetch specific data from your Optimizely Feature Experimentation instance. It lets you retrieve detailed information about various entities such as feature flags, rules, environments, attributes, and events, based on your specified criteria.",
+            "score": 0.19436783,
+            "matched_query": "\"Listimplementedfunctionalities aimfor Feature Descriptionandstatus Feature Descriptionandstatus Feature Descriptionandstatus Preliminary Results\"",
+            "document_page": 18,
+            "text_overlap": 16.67,
+            "matched_terms": [
+                "feature"
+            ]
+        },
+        {
+            "title": "LIZHI Launches “My Friends” Live Status Feature to Further Enhance Social Engagement on Social Audio App TIYA",
+            "url": "https://finance.yahoo.com/news/lizhi-launches-friends-live-status-110000758.html",
+            "content": "Through the \"My Friends\" function, TIYA users can discover their friends' social intentions and status, such as whether they want to team up to play games, watch videos together through the \"screen sharing\" function, study, or simply chat. The new feature uses an algorithm-based recommendation engine to simplify how users can find and interact online with friends with similar status and moods. With just one click, users can join their friends' rooms on the platform to participate in activities",
+            "score": 0.15456733,
+            "matched_query": "\"Listimplementedfunctionalities aimfor Feature Descriptionandstatus Feature Descriptionandstatus Feature Descriptionandstatus Preliminary Results\"",
+            "document_page": 18,
+            "text_overlap": 16.67,
+            "matched_terms": [
+                "feature"
+            ]
+        },
+        {
+            "title": "Feature Summary",
+            "url": "https://docs.oracle.com/en/cloud/saas/readiness/epm/2026/edm-apr26/26apr-edmcs-wn-t74149.htm",
+            "content": "| Oracle Cloud Infrastructure | Ability to View All Environments Belonging to a Subscription ID | Small scale | None |\n| Oracle Cloud Infrastructure | Break Glass Functionality Now Available | Small scale | None |\n| Oracle Cloud Infrastructure | Gen AI Now Available in All Regions in the OC1 Realm | Small scale | None |\n| Oracle Cloud Infrastructure | New Reset Service Request Type | Small scale | None | [...] | EPM Automate and REST APIs | IDCS Group Audit Information Included in the Group Assignment Audit Report | Small scale | None |\n| EPM Automate and REST APIs | Key-based Authentication Support for copyFromSFTP and copyToSFTP EPM Automate Commands and REST APIs | Small scale | None |\n| EPM Automate and REST APIs | New Migration REST APIs | Small scale | None |\n| EPM Automate and REST APIs | Updates to the Migration Status Report REST API | Small scale | None | [...] | Module | Feature | Impact to Existing Processes | Action to Enable |\n ---  --- |\n| 25.12.48 Update | Application Registration Assistant: Generate Properties | None | Setup Required |\n| 25.12.48 Update | API Signing Key Authentication For Object Storage Connections | Small scale | None |\n| 25.12.48 Update | Additional Predefined Validations For Financial Consolidation and Close Applications | Small scale | None |",
+            "score": 0.14977993,
+            "matched_query": "\"Listimplementedfunctionalities aimfor Feature Descriptionandstatus Feature Descriptionandstatus Feature Descriptionandstatus Preliminary Results\"",
+            "document_page": 18,
+            "text_overlap": 16.67,
+            "matched_terms": [
+                "feature"
+            ]
+        },
+        {
+            "title": "EduTracker - Apps on Google Play",
+            "url": "https://play.google.com/store/apps/details?id=com.omrex.edutracker&hl=en_US",
+            "content": "EduTracker is a product of OMREX, a smart assessment platform designed to modernize exam management and student evaluation systems.  \n  \nLearn more:   \n  \n━━━━━━━━━━━━━━━━━━━━━━━  \n  \n🎓 WHO IS THIS APP FOR?  \n  \n• Universities and colleges   \n• Schools and educational institutions   \n• Teachers and professors   \n• Private tutors and training centers   \n• Students who want to improve their performance   \n  \n━━━━━━━━━━━━━━━━━━━━━━━  \n  \n💡 USE CASES [...] 💡 USE CASES  \n  \n• Track student attendance with accuracy   \n• Analyze exams and identify weak points   \n• Monitor student performance over time   \n• Improve teaching strategies   \n• Help students achieve better results   \n  \n━━━━━━━━━━━━━━━━━━━━━━━  \n  \n📩 SUPPORT  \n  \nIf you need help or have any questions:  \nEmail: support@omrex.org   \nWebsite:    \n  \n━━━━━━━━━━━━━━━━━━━━━━━  \n  \nStart using EduTracker today and take your academic performance to the next level. [...] EduTracker is an advanced educational platform designed to simplify academic management and provide deep insights into student performance, attendance, and exam analysis.  \n  \nDeveloped as part of the OMREX ecosystem, EduTracker brings powerful tools used by educators into a simple and intuitive mobile experience.  \n  \nWhether you're a professor, teacher, or student, EduTracker helps you stay organized, make data-driven decisions, and improve academic outcomes.  \n  \n━━━━━━━━━━━━━━━━━━━━━━━",
+            "score": 0.51601624,
+            "matched_query": "\"TargetApplication Users Examples EduTracker AWeb BasedStudentPerformanceManagementSystemforEducationalInstitutions SmartInventory IoT EnabledInventoryManagementSystemforSmallBusinesses HealthMonitor\"",
+            "document_page": 10,
+            "text_overlap": 10.0,
+            "matched_terms": [
+                "edutracker"
+            ]
+        }
+    ],
+    "total_pages": 47,
+    "total_evidence": 0
+}

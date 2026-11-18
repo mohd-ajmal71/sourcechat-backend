@@ -1,0 +1,97 @@
+{
+    "image_analysis": {
+        "image_description": "Close-up photograph of a tiger peering from behind a dark tree trunk, with bright sunlight highlighting its fur and outlining its silhouette.",
+        "visible_text": [],
+        "copyright_indicators": [],
+        "possible_creators_or_owners": [],
+        "brands_or_organizations": [],
+        "distinctive_visual_features": [
+            "Tiger looking directly forward with its tongue slightly sticking out",
+            "Strong backlighting creating a bright rim light effect on the tiger's fur and ears",
+            "Textured tree trunk on the right side of the frame"
+        ],
+        "search_queries": [
+            "tiger behind tree trunk backlighting",
+            "tiger close up rim light fur"
+        ],
+        "limitations": [
+            "No visible text, watermarks, copyright notices, or creator signatures in the image."
+        ]
+    },
+    "search_queries": [
+        "tiger behind tree trunk backlighting",
+        "tiger close up rim light fur"
+    ],
+    "external_sources": [
+        {
+            "title": "Tiger Creeps Behind Tree Trunk as Spotted Deer Gazes into Distance",
+            "url": "https://www.facebook.com/61575166302469/posts/tiger-creeps-behind-tree-trunk-as-spotted-deer-gazes-into-distance/122200133858838876",
+            "content": "DO NOT BLINK: WATCH THE TREE TRUNK IN THE BACKGROUND! Watch the deer's body language change the instant her peripheral vision",
+            "score": 0.4947626,
+            "matched_query": "tiger behind tree trunk backlighting"
+        },
+        {
+            "title": "543 Tiger Behind Tree Royalty-Free Images, Stock Photos & Pictures",
+            "url": "https://www.shutterstock.com/search/tiger-behind-tree",
+            "content": "A playful tiger cub hides behind a textured tree trunk in a line art illustration. ... A tiger sculpture is partially visible behind the tree in the background",
+            "score": 0.46985474,
+            "matched_query": "tiger behind tree trunk backlighting"
+        },
+        {
+            "title": "Just a tiger lurking behind the tree : r/NatureIsFuckingLit - Reddit",
+            "url": "https://www.reddit.com/r/NatureIsFuckingLit/comments/dw8kkp/just_a_tiger_lurking_behind_the_tree",
+            "content": "No. Tigers are fairly friendly and seeing as there aren't that many of them left, most of them are fairly used to encountering unmanned cameras",
+            "score": 0.22970797,
+            "matched_query": "tiger behind tree trunk backlighting"
+        },
+        {
+            "title": "Have you ever seen a tiger hugging a tree?     This is a big male ...",
+            "url": "https://www.instagram.com/reel/DeEJW88vC6T?hl=en",
+            "content": "This is a form of territorial marking and communication. Tigers have scent glands between their toes, so when they scratch, they leave behind",
+            "score": 0.20545557,
+            "matched_query": "tiger behind tree trunk backlighting"
+        },
+        {
+            "title": "The Tiger That Marks Tree Bark In the deep forest, a ... - Facebook",
+            "url": "https://www.facebook.com/PlaneteTigre/posts/-the-tiger-that-marks-tree-barkin-the-deep-forest-a-tiger-walks-silently-among-t/1551952693625686",
+            "content": "The Tiger That Marks Tree Bark In the deep forest, a tiger walks silently among the trees. With its powerful paws and sharp claws,",
+            "score": 0.13420755,
+            "matched_query": "tiger behind tree trunk backlighting"
+        }
+    ],
+    "total_sources": 5,
+    "risk_assessment": {
+        "risk_level": "LOW",
+        "summary": "The preliminary assessment indicates low visible copyright-risk indicators directly on the image, such as watermarks or copyright notices. However, the absence of these indicators does not mean the image is in the public domain or free to use.",
+        "copyright_indicators": [
+            "No visible text, watermarks, copyright notices, or creator signatures are present in the image."
+        ],
+        "possible_source_matches": [
+            {
+                "title": "Tiger Creeps Behind Tree Trunk as Spotted Deer Gazes into Distance",
+                "url": "https://www.facebook.com/61575166302469/posts/tiger-creeps-behind-tree-trunk-as-spotted-deer-gazes-into-distance/122200133858838876",
+                "content": "External search result featuring a tiger and tree trunk motif, though visual identity cannot be definitively established based solely on text queries."
+            }
+        ],
+        "ownership_findings": [
+            "No specific creator or owner could be identified from the image content or metadata."
+        ],
+        "license_findings": [
+            "No explicit license information or terms of use are visible or determinable from the image alone."
+        ],
+        "recommendations": [
+            "Conduct a reverse image search to verify if the exact photograph has been published elsewhere online.",
+            "Do not assume the image is free to use simply because it lacks a visible watermark or copyright notice.",
+            "Seek permission from the copyright holder or look for a clear open license before publishing or reusing the image commercially."
+        ],
+        "limitations": [
+            "Text-based searches based on image descriptions cannot reliably establish visual image identity.",
+            "The available information is insufficient for a definitive legal determination of copyright status."
+        ]
+    },
+    "metadata": {
+        "filename": "1280px-Bengal_Tiger_Portrait.jpg",
+        "mime_type": "image/jpeg",
+        "file_size_bytes": 279083
+    }
+}

@@ -1,0 +1,117 @@
+{
+    "metadata": {
+        "source": "uploads\\07b5aada-bb20-4ff3-80d3-c85a207c97e8\\d1b73342-f8f1-4c35-803a-6c3aafc7ac74\\lab_manual_3rd.pdf",
+        "page": 0
+    },
+    "evidence": [],
+    "search_queries": [
+        {
+            "sentence": "actualresults] Non-Functional Testing: ▶Performance Testing: [Loadtesting,stresstesting] ▶Security Testing: [Vulnerabilityassessment] ▶Usability Testing: [Userexperienceevaluation] 1.3 Test Cases Test Case Format: ▶Test Case ID: [Uniqueidentifier] ▶Description: [Whatisbeingtested] ▶Pre-conditions: [Setuprequirements] ▶Test Steps: [Detailedexecutionsteps] ▶Expected Result: [Whatshouldhappen] ▶Actual Result: [Whatactuallyhappened] ▶Status:[Pass/Fail/Pending] Question 2: Testing Results and Conclusions Department of Computer Science, A.M.U., Aligarh MCA Lab Manual Page 18 of 46",
+            "page": 19,
+            "score": 166.3
+        },
+        {
+            "sentence": "Refer for SRS template: ▶http://krazytech.com/projects/sample-software-requirementsspecificationsrs-report-airline-database ▶www.cse.msu.edu/~chengb/RE-491/Papers/SRSExample-webapp.doc Discussthe SRS document with the concerned teacher/Mentor in the lab, incorporate suggestions (if any), and maintain the different versionsofSRS document.",
+            "page": 23,
+            "score": 127.53
+        },
+        {
+            "sentence": "Depending on the topic of the project and the chosen software development methodology, which may varyfromoneyeartoanother,thefollowingthemesmaybeaddressedtosomeextent: ▶Softwaredevelopmentmethodologies,static(products)anddynamicaspects(processes); ▶Requirementanalysis(goals,usecases),softwarearchitectures,architecturalstylesandpatterns,modeldrivenengineering(MDE); ▶Programmingtechniques,softwaredevelopmentenvironments,refactoring; ▶Softwarevalidationthroughunittests,integrationtests,functionalandstructuraltests,andcodereviews.",
+            "page": 4,
+            "score": 122.24
+        }
+    ],
+    "external_sources": [
+        {
+            "title": "Functional vs. Non-Functional Testing: Key Differences | Sauce Labs",
+            "url": "https://saucelabs.com/resources/blog/functional-vs-non-functional-testing-differences-examples-and-tools",
+            "content": "Load testing determines behavior at expected peak concurrency. Stress testing pushes past that peak to find the breaking point and the recovery behavior. Scalability testing answers whether adding capacity moves the ceiling proportionally or whether the architecture hits a bottleneck that hardware alone cannot fix.\n\n### Security testing [...] Performance testing measures response time, throughput, and resource utilization under a defined workload. No performance number means anything without a stable baseline environment. System performance baselines should be established before optimization work begins. For a breakdown of load, stress, spike, and soak testing, see types of performance testing.\n\n### Load and stress testing [...] Permissions. A standard user requesting an admin route receives HTTP 403 and no data payload. Data validation confirms no user records leak through the error response.\n\n## Non-functional testing types\n\nEach type names the quality attribute it measures and the metric that decides pass or fail. Non-functional testing evaluates how the software application behaves under conditions that go beyond feature correctness.\n\n### Performance testing",
+            "score": 0.4504198,
+            "matched_query": "\"actualresults] Non-Functional Testing: ▶Performance Testing: [Loadtesting,stresstesting] ▶Security Testing: [Vulnerabilityassessment] ▶Usability Testing: [Userexperienceevaluation] 1.3 Test Cases Test Case Format: ▶Test Case ID: [Uniqueidentifier] ▶Description: [Whatisbeingtested] ▶Pre-conditions: [Setuprequirements] ▶Test Steps: [Detailedexecutionsteps] ▶Expected Result: [Whatshouldhappen] ▶Actual Result: [Whatactuallyhappened] ▶Status:[Pass/Fail/Pending] Question 2: Testing Results and Conclusions Department of Computer Science, A.M.U., Aligarh MCA Lab Manual Page 18 of 46\"",
+            "document_page": 19,
+            "text_overlap": 20.93,
+            "matched_terms": [
+                "conditions",
+                "expected",
+                "fail",
+                "functional",
+                "non",
+                "pass",
+                "performance",
+                "security",
+                "testing"
+            ]
+        },
+        {
+            "title": "Non-Functional Testing - With Non-Functional Test Examples | Perforce Software",
+            "url": "https://www.perforce.com/blog/alm/what-non-functional-testing",
+            "content": "Measuring response times\n Identifying bottlenecks\n Locating failure points\n\nPerformance tests ensure several elements of software quality. They validate that it’s fast, scalable, stable, and reliable. \n\n### 2. Load Tests\n\nLoad testing checks how the software behaves under both normal and peak conditions. This is done to determine how much work load the software can handle before performance is negatively affected. [...] 1. Performance Tests\n2. Load Tests\n3. Stress Tests\n4. Volume Tests\n5. Security Tests\n6. Upgrade & Installation Tests\n7. Recovery Tests\n\nAll of these non functional test types help to ensure that your product is fast, stable, scalable, reliable, and secure.\n\n### Watch Now: Our Step-by-Step Guide to Accelerating Your Testing Strategy [...] You can perform load tests by running multiple applications simultaneously, subjecting a server to a high amount of traffic, or downloading a large quantity of files.\n\nLoad tests are used to ensure fast and scalable software.\n\n### 3. Stress Tests\n\nStress testing checks how the software behaves under abnormal conditions. This determines the limit at which the software will break.",
+            "score": 0.496357,
+            "matched_query": "\"actualresults] Non-Functional Testing: ▶Performance Testing: [Loadtesting,stresstesting] ▶Security Testing: [Vulnerabilityassessment] ▶Usability Testing: [Userexperienceevaluation] 1.3 Test Cases Test Case Format: ▶Test Case ID: [Uniqueidentifier] ▶Description: [Whatisbeingtested] ▶Pre-conditions: [Setuprequirements] ▶Test Steps: [Detailedexecutionsteps] ▶Expected Result: [Whatshouldhappen] ▶Actual Result: [Whatactuallyhappened] ▶Status:[Pass/Fail/Pending] Question 2: Testing Results and Conclusions Department of Computer Science, A.M.U., Aligarh MCA Lab Manual Page 18 of 46\"",
+            "document_page": 19,
+            "text_overlap": 16.28,
+            "matched_terms": [
+                "conditions",
+                "functional",
+                "non",
+                "performance",
+                "security",
+                "test",
+                "testing"
+            ]
+        },
+        {
+            "title": "Introducing Kualitee's Test Case Library: Redefining Test Creation",
+            "url": "https://finance.yahoo.com/news/introducing-kualitees-test-case-library-074000563.html",
+            "content": "2 min read\n\nNEW YORK, NY / ACCESSWIRE / November 24, 2023 / On November 8, 2023, Kualitee, a leading test case management tool, launched its latest innovation; Test Case Library. This groundbreaking addition to the platform offers customers the ability to access pre-written test cases, marking a significant leap in simplifying the testing process. [...] Kualitee's Test Case Library is designed to offer unmatched convenience to Kualitee's user base. Subscribers now have the opportunity to purchase pre-written test cases directly from the platform. This signals a shift from the conventional method of creating test cases from scratch, saving users valuable time and alleviating the hassle of extensive manual test case design.\n\n. For more information, go to Kualitee.com.\n\nMedia Contact [...] Oops, something went wrong\n\nSkip to navigation  Skip to right column \n\nSign in",
+            "score": 0.06903793,
+            "matched_query": "\"actualresults] Non-Functional Testing: ▶Performance Testing: [Loadtesting,stresstesting] ▶Security Testing: [Vulnerabilityassessment] ▶Usability Testing: [Userexperienceevaluation] 1.3 Test Cases Test Case Format: ▶Test Case ID: [Uniqueidentifier] ▶Description: [Whatisbeingtested] ▶Pre-conditions: [Setuprequirements] ▶Test Steps: [Detailedexecutionsteps] ▶Expected Result: [Whatshouldhappen] ▶Actual Result: [Whatactuallyhappened] ▶Status:[Pass/Fail/Pending] Question 2: Testing Results and Conclusions Department of Computer Science, A.M.U., Aligarh MCA Lab Manual Page 18 of 46\"",
+            "document_page": 19,
+            "text_overlap": 13.95,
+            "matched_terms": [
+                "case",
+                "cases",
+                "manual",
+                "pre",
+                "test",
+                "testing"
+            ]
+        },
+        {
+            "title": "Introducing Kualitee's Test Case Library: Redefining Test Creation",
+            "url": "https://finance.yahoo.com/news/introducing-kualitees-test-case-library-074000563.html?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAAB7RV47MFD65goP5QKFglATJ14fffG8PQfQKOTLyeAoYBsU2RAO7pfK40pBMoTLJn0WUMNyKkkA0HQxY3h2XxgacWCBx3udGhq6rEXxO_PK7uSvGMdHapjhdtm75DvN5WdR5WskJpKGidnax6A6hJra9eq8vXGNBuZVOhP8p3t-W",
+            "content": "2 min read\n\nNEW YORK, NY / ACCESSWIRE / November 24, 2023 / On November 8, 2023, Kualitee, a leading test case management tool, launched its latest innovation; Test Case Library. This groundbreaking addition to the platform offers customers the ability to access pre-written test cases, marking a significant leap in simplifying the testing process. [...] Kualitee's Test Case Library is designed to offer unmatched convenience to Kualitee's user base. Subscribers now have the opportunity to purchase pre-written test cases directly from the platform. This signals a shift from the conventional method of creating test cases from scratch, saving users valuable time and alleviating the hassle of extensive manual test case design.\n\n. For more information, go to Kualitee.com.\n\nMedia Contact [...] Oops, something went wrong\n\nSkip to navigation  Skip to right column \n\nSign in",
+            "score": 0.06903793,
+            "matched_query": "\"actualresults] Non-Functional Testing: ▶Performance Testing: [Loadtesting,stresstesting] ▶Security Testing: [Vulnerabilityassessment] ▶Usability Testing: [Userexperienceevaluation] 1.3 Test Cases Test Case Format: ▶Test Case ID: [Uniqueidentifier] ▶Description: [Whatisbeingtested] ▶Pre-conditions: [Setuprequirements] ▶Test Steps: [Detailedexecutionsteps] ▶Expected Result: [Whatshouldhappen] ▶Actual Result: [Whatactuallyhappened] ▶Status:[Pass/Fail/Pending] Question 2: Testing Results and Conclusions Department of Computer Science, A.M.U., Aligarh MCA Lab Manual Page 18 of 46\"",
+            "document_page": 19,
+            "text_overlap": 13.95,
+            "matched_terms": [
+                "case",
+                "cases",
+                "manual",
+                "pre",
+                "test",
+                "testing"
+            ]
+        },
+        {
+            "title": "Introducing Kualitee's Test Case Library: Redefining Test Creation",
+            "url": "https://finance.yahoo.com/news/introducing-kualitees-test-case-library-074000563.html?guccounter=1&amp%3Bguce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&amp%3Bguce_referrer_sig=AQAAAB7RV47MFD65goP5QKFglATJ14fffG8PQfQKOTLyeAoYBsU2RAO7pfK40pBMoTLJn0WUMNyKkkA0HQxY3h2XxgacWCBx3udGhq6rEXxO_PK7uSvGMdHapjhdtm75DvN5WdR5WskJpKGidnax6A6hJra9eq8vXGNBuZVOhP8p3t-W",
+            "content": "2 min read\n\nNEW YORK, NY / ACCESSWIRE / November 24, 2023 / On November 8, 2023, Kualitee, a leading test case management tool, launched its latest innovation; Test Case Library. This groundbreaking addition to the platform offers customers the ability to access pre-written test cases, marking a significant leap in simplifying the testing process. [...] Kualitee's Test Case Library is designed to offer unmatched convenience to Kualitee's user base. Subscribers now have the opportunity to purchase pre-written test cases directly from the platform. This signals a shift from the conventional method of creating test cases from scratch, saving users valuable time and alleviating the hassle of extensive manual test case design.\n\n. For more information, go to Kualitee.com.\n\nMedia Contact [...] Oops, something went wrong\n\nSkip to navigation  Skip to right column \n\nSign in",
+            "score": 0.06903793,
+            "matched_query": "\"actualresults] Non-Functional Testing: ▶Performance Testing: [Loadtesting,stresstesting] ▶Security Testing: [Vulnerabilityassessment] ▶Usability Testing: [Userexperienceevaluation] 1.3 Test Cases Test Case Format: ▶Test Case ID: [Uniqueidentifier] ▶Description: [Whatisbeingtested] ▶Pre-conditions: [Setuprequirements] ▶Test Steps: [Detailedexecutionsteps] ▶Expected Result: [Whatshouldhappen] ▶Actual Result: [Whatactuallyhappened] ▶Status:[Pass/Fail/Pending] Question 2: Testing Results and Conclusions Department of Computer Science, A.M.U., Aligarh MCA Lab Manual Page 18 of 46\"",
+            "document_page": 19,
+            "text_overlap": 13.95,
+            "matched_terms": [
+                "case",
+                "cases",
+                "manual",
+                "pre",
+                "test",
+                "testing"
+            ]
+        }
+    ],
+    "total_pages": 47,
+    "total_evidence": 0
+}

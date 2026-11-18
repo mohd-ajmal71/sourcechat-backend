@@ -511,6 +511,57 @@ def extract_json_response(response_text):
     return result
 
 
+def add_ai_creator_findings(image_analysis, risk_assessment):
+
+    possible_creators = image_analysis.get(
+        "possible_creators_or_owners",
+        []
+    )
+
+    if not isinstance(possible_creators, list):
+        possible_creators = []
+
+    risk_assessment.setdefault("ownership_findings", [])
+
+    if not isinstance(risk_assessment["ownership_findings"], list):
+        risk_assessment["ownership_findings"] = []
+
+    existing_findings = risk_assessment["ownership_findings"]
+
+    for creator in possible_creators:
+
+        if not isinstance(creator, str):
+            continue
+
+        creator = creator.strip()
+
+        if not creator:
+            continue
+
+        finding = (
+            f"{creator} — AI-suggested identification based on "
+            "visual recognition; not independently verified as "
+            "the creator or copyright owner."
+        )
+
+        if not any(
+            creator.lower() in str(existing).lower()
+            for existing in existing_findings
+        ):
+            existing_findings.append(finding)
+
+    if possible_creators:
+        image_analysis["creator_identification_status"] = (
+            "AI_SUGGESTED_NOT_VERIFIED"
+        )
+    else:
+        image_analysis["creator_identification_status"] = (
+            "NO_CREATOR_IDENTIFIED"
+        )
+
+    return image_analysis, risk_assessment
+
+
 def check_source_and_license_verification(
     external_sources,
     wikimedia_lookup
@@ -679,18 +730,56 @@ copyright and source verification system.
 
 Carefully inspect the actual image.
 
-Identify only information that is visibly supported by the image.
+IMPORTANT: You must distinguish between information that is
+visibly printed in the image and information that you may
+recognize from your visual knowledge.
 
-Look for:
+Perform BOTH types of identification:
 
-1. A clear description of the image.
-2. Any visible text.
+A. VISIBLE EVIDENCE
+
+Identify information directly visible in the image:
+
+1. Image description.
+2. Visible text.
 3. Copyright notices and copyright symbols.
 4. Watermarks and attribution information.
-5. Visible creator names, brands or organization names.
+5. Visible creator, brand or organization names.
 6. License names or license references.
-7. Distinctive visual elements that may help search for
-   the image or its original source.
+7. Distinctive visual elements.
+
+B. VISUAL RECOGNITION
+
+Consider whether the image resembles a well-known:
+
+1. Photograph.
+2. Painting or artwork.
+3. Illustration.
+4. Poster or published image.
+5. Image associated with a known photographer, artist
+   or organization.
+
+If you genuinely recognize a well-known image, you may
+suggest its likely title, artist, photographer or creator.
+
+For visual recognition:
+
+- Only provide a creator name when you have a meaningful
+  basis for the identification.
+- Do not guess a creator just because the image resembles
+  a particular style.
+- Distinguish a likely identification from a confirmed match.
+- A visual resemblance does not prove that the uploaded
+  image is the exact original photograph or artwork.
+- Do not treat a photographer as the current copyright owner
+  without evidence.
+- If you cannot confidently identify a creator, return
+  an empty array.
+
+The possible_creators_or_owners field should contain
+recognized creator names when appropriate, including
+AI-suggested identifications that are not independently
+verified.
 
 Do not assume that a logo identifies the copyright owner.
 Do not assume that the absence of a watermark means an
@@ -698,8 +787,8 @@ image is free to use.
 Do not invent text, names, sources or licensing information.
 
 Generate up to three useful text-based web search queries.
-Queries should use visible text, creator names, brands or
-distinctive image descriptions.
+Queries may use visible text, recognized artwork titles,
+creator names, brands or distinctive image descriptions.
 
 Return only valid JSON using this structure:
 
@@ -715,13 +804,16 @@ Return only valid JSON using this structure:
         }
     ],
     "possible_creators_or_owners": [],
+    "creator_identification_basis": [],
     "brands_or_organizations": [],
     "distinctive_visual_features": [],
     "search_queries": [],
     "limitations": []
 }
 
-Use empty arrays when no relevant evidence is visible.
+Use empty arrays when no relevant evidence is available.
+
+Do not place an unverified creator in copyright_indicators.
 """
 
     image_response = client.models.generate_content(
@@ -893,9 +985,23 @@ ANALYSIS RULES:
 
 13. Do not invent an image creator, owner, license or source.
 
-14. Explain uncertainty wherever evidence is insufficient.
+14. If the first image analysis suggests a known photographer
+    or artist based on visual recognition, include that name
+    in ownership_findings as an AI-suggested identification.
+    Clearly state that it is not independently verified and
+    does not establish copyright ownership.
 
-15. Provide practical recommendations for image reuse.
+15. Keep these concepts separate:
+    - A creator visibly named in the image or metadata.
+    - A creator suggested through AI visual recognition.
+    - A creator or owner supported by verified source evidence.
+
+16. Do not describe an AI-suggested creator as a confirmed
+    copyright holder.
+
+17. Explain uncertainty wherever evidence is insufficient.
+
+18. Provide practical recommendations for image reuse.
 
 RISK LEVELS:
 
@@ -950,6 +1056,11 @@ This is a preliminary automated assessment, not legal advice.
 
     risk_assessment = extract_json_response(
         risk_response.text
+    )
+
+    image_analysis, risk_assessment = add_ai_creator_findings(
+        image_analysis,
+        risk_assessment
     )
 
     risk_assessment = apply_risk_safeguards(

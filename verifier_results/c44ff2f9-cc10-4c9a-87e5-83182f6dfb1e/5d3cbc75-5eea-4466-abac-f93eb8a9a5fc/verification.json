@@ -1,0 +1,106 @@
+{
+    "image_analysis": {
+        "image_description": "A tiger is lying down on the ground, partially obscured by leafy foliage in the foreground. The tiger is resting on a rocky surface near what appears to be water.",
+        "visible_text": [],
+        "copyright_indicators": [],
+        "possible_creators_or_owners": [],
+        "brands_or_organizations": [],
+        "distinctive_visual_features": [
+            "Tiger resting on rocky ground",
+            "Obscured by foreground leaves and branches"
+        ],
+        "search_queries": [
+            "tiger resting on rocky ground",
+            "tiger lying down near water wildlife photography"
+        ],
+        "limitations": [
+            "No visible text, copyright notices, watermarks, creator names, or brand logos in the image."
+        ]
+    },
+    "search_queries": [
+        "tiger resting on rocky ground",
+        "tiger lying down near water wildlife photography"
+    ],
+    "external_sources": [
+        {
+            "title": "Tigers thrive in rocky terrain for safety and solitude - Facebook",
+            "url": "https://www.facebook.com/groups/951357615665893/posts/2328439697957671",
+            "content": "Tigers use elevated rocks and boulders for a clear vantage to observe surroundings, rest in safety and enjoy solitude, and young tigers pause on",
+            "score": 0.6807725,
+            "matched_query": "tiger resting on rocky ground"
+        },
+        {
+            "title": "Tiger's Rocky Throne: Surveying the Landscape from Elevated Ground",
+            "url": "https://www.facebook.com/groups/wildlifeworldphotographers/posts/3101375520058075",
+            "content": "Tigers use elevated rocks and boulders for a clear vantage point to observe surroundings, rest in safety and enjoy solitude, and rocky terrain",
+            "score": 0.6274948,
+            "matched_query": "tiger resting on rocky ground"
+        },
+        {
+            "title": "A large tiger laying on top of a pile of rocks - Free Photo on Unsplash",
+            "url": "https://unsplash.com/photos/a-large-tiger-laying-on-top-of-a-pile-of-rocks-4J--jRSeh5M",
+            "content": "a large tiger laying on top of a pile of rocks. Download this free HD photo of animal, wildlife, tiger, and brown in Scano Al Brembo, Italia by",
+            "score": 0.47639695,
+            "matched_query": "tiger resting on rocky ground"
+        },
+        {
+            "title": "Instagram",
+            "url": "https://www.instagram.com/reel/DeOr8bzP4yT",
+            "content": "A tiger’s walk through the forest is more than a striking sight it is a glimpse into how it moves through its habitat.  \n  \nWith powerful limbs, padded paws and a flexible body, the tiger is built to move efficiently across different terrains. Its movement may take it through dense vegetation, grasslands, rocky ground and watercourses as it travels across its home range.  \n  \nEvery step is part of life in the wild quiet, deliberate and purposeful.  \n  \nWatch closely. Respect the wild. [...] Photo by Pench National Park - Official Handle on November 09, 2026. May be an image of rhinoceros, bear, brown bear, poster, magazine and text.\n\nPhoto by Pench National Park - Official Handle on November 07, 2026. May be an image of text.\n\nPhoto by Pench National Park - Official Handle on November 07, 2026. May be an image of pangolin, squirrel, rodent and text.\n\nPhoto by Department of Forest, MP on November 05, 2026. May be an image of tiger, poster, outdoors and text.\n\nSee more posts\n\n--- [...] #wildlifeconservation #tigersighting #penchtigerreserve #tigerofpench #naturelovers",
+            "score": 0.4653571,
+            "matched_query": "tiger resting on rocky ground"
+        },
+        {
+            "title": "77K views · 1.1K reactions | Tiger relaxing in river and marking her territory 🐯🐾 | Ryan Shirley",
+            "url": "https://www.facebook.com/shirley.films/videos/tiger-relaxing-in-river-and-marking-her-territory-/1311861634083362",
+            "content": "[](\n\nWaking up before sunrise to hike to the top of a mountain in northern Ethiopia with the local monk is a memory we will never forget 🇪🇹 The mountains of Gheralta are home to several cliffside churches. The monks hike to them daily to worship and show their devotion ⛪️ #ethiopia #tigray #christianity\n\nRyan Shirley\n\n1.7K views\n\n · \n\n1d ago\n\nImage 9: Video thumbnail 0:26\n\n[](\n\nBálkódy Floating Village: Hungary’s Unusual Floating Cottages\n\nRyan Shirley\n\n626 views\n\n · \n\n1d ago [...] [](\n\nPatagonia Puma Expedition: We Saw a Mother and Cub!\n\nRyan Shirley\n\n18.7K views\n\n · \n\n4d ago\n\nImage 14: Video thumbnail 1:55\n\n[](\n\nTorres del Paine Hike: The Epic Trek to Las Torres\n\nRyan Shirley\n\n18.9K views\n\n · \n\n5d ago\n\nPages\n\nPublic figure\n\nReel creator\n\nRyan Shirley\n\nVideos\n\nHome\n\nLive\n\nExplore\n\n   Privacy · \n   Terms · \n   Advertising · \n   Ad Choices · \n   Cookies · \n   More \n\nSee more on Facebook\n\nSee more on Facebook\n\nEmail or phone number\n\n \n\nPassword\n\n \n\nLog In\n\nForgot password? [...] Forgot password?\n\nor\n\nCreate new account",
+            "score": 0.14608724,
+            "matched_query": "tiger resting on rocky ground"
+        }
+    ],
+    "total_sources": 5,
+    "risk_assessment": {
+        "risk_level": "INCONCLUSIVE",
+        "summary": "The image depicts a wildlife scene of a tiger resting on rocky ground, with no visible text, watermarks, or copyright notices present. External text searches for the visual description yield various social media and stock photo results, but these text-based matches cannot reliably establish visual identity or ownership without a definitive reverse image match. Consequently, the copyright status remains uncertain.",
+        "copyright_indicators": [],
+        "possible_source_matches": [
+            {
+                "title": "A large tiger laying on top of a pile of rocks - Free Photo on Unsplash",
+                "url": "https://unsplash.com/photos/a-large-tiger-laying-on-top-of-a-pile-of-rocks-4J--jRSeh5M",
+                "content": "A general thematic match for a wildlife photo of a tiger on rocks, though visual identity is not confirmed."
+            },
+            {
+                "title": "Tigers thrive in rocky terrain for safety and solitude - Facebook",
+                "url": "https://www.facebook.com/groups/951357615665893/posts/2328439697957671",
+                "content": "A social media post discussing tigers in rocky terrain, matched via text-based queries."
+            }
+        ],
+        "ownership_findings": [
+            "No visible creator names, brand logos, or ownership markers appear on the image itself."
+        ],
+        "license_findings": [
+            "No license references or terms of use are visibly attached to the image file."
+        ],
+        "recommendations": [
+            "Verify the original source and applicable license before reusing or publishing this image.",
+            "Conduct a visual reverse image search to check for exact matches across reputable stock agencies or photographer portfolios.",
+            "Verify the original source and obtain explicit permission or a valid license before publishing or reusing the image commercially.",
+            "Do not assume the image is in the public domain simply because it lacks a watermark or copyright notice."
+        ],
+        "limitations": [
+            "Image analysis is based solely on a preliminary description and limited text-based external search results.",
+            "Text-based searches cannot reliably establish exact visual image identity.",
+            "This assessment does not constitute formal legal advice.",
+            "The system could not verify the original image source and the applicable license. Text-based search results and visually similar images do not establish the original source or usage rights."
+        ],
+        "verification_status": {
+            "original_source": "NOT_VERIFIED",
+            "license": "NOT_VERIFIED"
+        }
+    },
+    "metadata": {
+        "filename": "1280px-THE_TIGER (1).jpg",
+        "mime_type": "image/jpeg",
+        "file_size_bytes": 274185
+    }
+}

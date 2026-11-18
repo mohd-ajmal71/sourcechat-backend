@@ -1,0 +1,133 @@
+{
+    "image_analysis": {
+        "image_description": "A tiger is lying down on the ground, partially obscured by leafy foliage in the foreground. The tiger's body, stripes, and head are visible against a rocky and dirt background near water.",
+        "visible_text": [],
+        "copyright_indicators": [],
+        "possible_creators_or_owners": [],
+        "brands_or_organizations": [],
+        "distinctive_visual_features": [
+            "Tiger resting on rocky ground",
+            "Obscured by green foliage in the foreground",
+            "Viewed from behind and above"
+        ],
+        "search_queries": [
+            "tiger resting on rocky ground foliage",
+            "tiger sleeping near water rocks"
+        ],
+        "limitations": [
+            "No visible text, watermarks, or copyright notices in the image."
+        ]
+    },
+    "image_metadata": {
+        "embedded_metadata_found": false,
+        "metadata_sources": [],
+        "image_properties": {
+            "format": "JPEG",
+            "width": 1280,
+            "height": 853,
+            "mode": "RGB"
+        },
+        "exif": {},
+        "xmp": {},
+        "image_text_metadata": {},
+        "limitations": [
+            "No relevant embedded EXIF, XMP or image text metadata was found.",
+            "No embedded creator or copyright ownership information was found.",
+            "Embedded metadata can be edited or removed and does not independently prove copyright ownership or license validity."
+        ]
+    },
+    "search_queries": [
+        "tiger resting on rocky ground foliage",
+        "tiger sleeping near water rocks"
+    ],
+    "external_sources": [
+        {
+            "title": "Tiger on rocks hi-res stock photography and images",
+            "url": "https://www.alamy.com/stock-photo/tiger-on-rocks.html",
+            "content": "RM 3EWXBF8–Medium shot of a tigress lying on sandy ground surrounded by dark rocks and colourful dry tendu leaves. The big cat is appears relaxed yet alert.",
+            "score": 0.58906645,
+            "matched_query": "tiger resting on rocky ground foliage"
+        },
+        {
+            "title": "Bengal Tiger Resting on Leaf-Covered Ground",
+            "url": "https://www.pinterest.com/pin/bengal-tiger-resting-on-leafcovered-ground--15692298693270619",
+            "content": "Witness the majestic beauty of a Bengal tiger peacefully resting on the forest floor. Join the movement to save these wild cats and",
+            "score": 0.5584775,
+            "matched_query": "tiger resting on rocky ground foliage"
+        },
+        {
+            "title": "Tiger resting on rocks surrounded by lush greenery",
+            "url": "https://unsplash.com/photos/tiger-resting-on-rocks-surrounded-by-lush-greenery-aIdSXiYvJFQ",
+            "content": "Tiger resting on rocks surrounded by lush greenery. Download this free HD photo by Kailash Maratha (@kailashmaratha55).",
+            "score": 0.50438297,
+            "matched_query": "tiger resting on rocky ground foliage"
+        },
+        {
+            "title": "Tiger Sitting on Grass",
+            "url": "https://www.pinterest.fr/ideas/tiger-sitting-on-grass/960667744256",
+            "content": "a tiger standing on top of a large rock in the middle of a mountain range\n\nTiger Landscape\n\nTiger Standing On Rock\n\nTiger Standing On Rock Background\n\nTiger Sitting On A Rock\n\nTiger Roaring In Scenic Landscape\n\nTigers In A Forest Landscape\n\nTiger In A Peaceful Landscape\n\nTiger In A Dramatic Sunset\n\nTiger In Snowy Mountain Landscape\n\nThe Tyger\n\na tiger drinking water from a pond with rocks and grass in the background, while looking at it's reflection\n\nTiger Drinking Water By Rocks [...] Tiger In The Grass\n\na tiger laying down in the grass next to some rocks and green grass, with another one lying on the ground behind it\n\nTiger Laying Down\n\nTiger Laying Down Gif\n\nTiger Laying Down Images\n\nTiger Laying Down Stock Photos\n\nTiger Laying Down Wallpaper\n\nResting Tiger\n\nTiger Laying Down Background\n\nTiger Lying Down Resting\n\nTiger Laying On Back\n\n1,369 Tiger Laying Down Stock Photos, High-Res Pictures, and Images - Getty Images [...] Tiger Drinking Water In Jungle\n\nTiger Drinking Water Images\n\nTiger Drinking Water\n\nTiger Resting In Water\n\nTiger Drinking Water Photo\n\nTiger Drinking Scene Nature\n\nBengal Tiger Waterhole\n\nTiger Drinking Water In Sunset\n\nTiger drinking from a water hole in Ranth",
+            "score": 0.4212542,
+            "matched_query": "tiger resting on rocky ground foliage"
+        },
+        {
+            "title": "Tiger's Rocky Throne: Surveying the Landscape from ...",
+            "url": "https://www.facebook.com/groups/wildlifeworldphotographers/posts/3101375520058075",
+            "content": "Tigers use elevated rocks and boulders for a clear vantage point to observe surroundings, rest in safety and enjoy solitude, and rocky terrain",
+            "score": 0.41324034,
+            "matched_query": "tiger resting on rocky ground foliage"
+        }
+    ],
+    "total_sources": 5,
+    "risk_assessment": {
+        "risk_level": "MEDIUM",
+        "summary": "The image depicts a wild animal (tiger) in a natural setting. There are no visible watermarks, text, logos, or copyright notices within the image itself, and embedded metadata contains no creator or copyright information. However, external search results show similar stock photography and user-uploaded wildlife images across platforms like Alamy, Pinterest, and Unsplash, indicating that the photograph is likely an original creative work belonging to a professional or amateur wildlife photographer. Consequently, reuse without proper verification or licensing carries moderate copyright risk.",
+        "copyright_indicators": [
+            "No visible copyright notices, watermarks, logos, or distinctive attribution text are present in the image."
+        ],
+        "possible_source_matches": [
+            {
+                "title": "Tiger on rocks hi-res stock photography and images",
+                "url": "https://www.alamy.com/stock-photo/tiger-on-rocks.html",
+                "reason": "Stock photo platform containing similar wildlife photography of tigers resting on rocky ground."
+            },
+            {
+                "title": "Bengal Tiger Resting on Leaf-Covered Ground",
+                "url": "https://www.pinterest.com/pin/bengal-tiger-resting-on-leafcovered-ground--15692298693270619",
+                "reason": "Contains user-shared content featuring similar subject matter."
+            },
+            {
+                "title": "Tiger resting on rocks surrounded by lush greenery",
+                "url": "https://unsplash.com/photos/tiger-resting-on-rocks-surrounded-by-lush-greenery-aIdSXiYvJFQ",
+                "reason": "Free-to-use photography platform featuring wildlife images with similar compositions."
+            }
+        ],
+        "ownership_findings": [
+            "No creator or ownership details were found in the embedded EXIF or XMP metadata.",
+            "External search results point to various stock photo libraries and user galleries, but do not provide definitive proof of the exact image's creator."
+        ],
+        "license_findings": [
+            "No explicit license terms or copyright statements were found within the embedded metadata or visual elements of the image."
+        ],
+        "recommendations": [
+            "Verify the original source and applicable license before reusing or publishing this image.",
+            "Conduct a reverse image search using specialized image-matching tools to trace the exact original source and photographer.",
+            "Do not assume the image is in the public domain simply because it lacks a watermark or copyright notice.",
+            "Obtain explicit permission or a valid license from the copyright holder if planning to publish or reuse the image commercially."
+        ],
+        "limitations": [
+            "Text-based searches and visual descriptions cannot definitively establish image identity.",
+            "Embedded metadata can be stripped or modified, limiting its reliability for ownership verification.",
+            "This assessment is preliminary and does not constitute formal legal advice.",
+            "The system could not verify the original image source and the applicable license. Text-based search results and visually similar images do not establish the original source or usage rights."
+        ],
+        "verification_status": {
+            "original_source": "NOT_VERIFIED",
+            "license": "NOT_VERIFIED"
+        }
+    },
+    "metadata": {
+        "filename": "1280px-THE_TIGER.jpg",
+        "mime_type": "image/jpeg",
+        "file_size_bytes": 274185
+    }
+}
