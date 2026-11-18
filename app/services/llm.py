@@ -1,16 +1,48 @@
-import google.generativeai as genai
-from dotenv import load_dotenv
+
 import os
+
+from dotenv import load_dotenv
+from google import genai
+from google.genai import types
 
 load_dotenv()
 
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+api_key = os.getenv("GEMINI_API_KEY")
 
-model = genai.GenerativeModel("gemini-flash-latest")
+if not api_key:
+    raise ValueError("GEMINI_API_KEY not found in environment variables")
+
+client = genai.Client(
+    api_key=api_key,
+    http_options=types.HttpOptions(
+        api_version="v1beta"
+    )
+)
+
+MODEL_NAME = "gemini-flash-lite-latest"
+
+
+class GeminiModel:
+
+    def generate_content(self, prompt, generation_config=None):
+        response = client.models.generate_content(
+            model=MODEL_NAME,
+            contents=prompt,
+            config=generation_config
+        )
+
+        return response
+
+
+model = GeminiModel()
+
 
 def generate_answer(question: str, context: str):
+
     prompt = f"""
 You are a helpful AI assistant.
+
+Answer the user's question using the uploaded document context.
 
 Output format:
 
